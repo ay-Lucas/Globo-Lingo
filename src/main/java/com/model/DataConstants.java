@@ -7,20 +7,20 @@ public class DataConstants {
     // JSON keys for Course
     protected static final String USER_COURSES_LANGUAGE = "language";
     protected static final String USER_COURSES_CURRENT_LESSON = "currentLesson";
-    protected static final String DICTIONARY_FILE_PATH = "json/Dictionary.json";
+    protected static final String DICTIONARY_FILE_PATH = "src/main/java/com/data/Dictionary.json";
     protected static final String DICTIONARY_BASICS = "basics";
     protected static final String DICTIONARY_ENGLISH_WORD = "english";
     protected static final String DICTIONARY_SPANISH_WORD = "spanish";
     protected static final String DICTIONARY_SUBJECT = "spanish";
 
-    protected static final String PHRASEBOOK_FILE_PATH = "json/Phrasebook.json";
+    protected static final String PHRASEBOOK_FILE_PATH = "src/main/java/com/data/Phrasebook.json";
     protected static final String PHRASEBOOK_BASICS = "basics";
     protected static final String PHRASEBOOK_ENGLISH_WORD = "english";
     protected static final String PHRASEBOOK_SPANISH_WORD = "spanish";
     protected static final String PHRASEBOOK_SUBJECT = "spanish";
 
     // JSON keys for User
-    protected static final String USER_FILE_PATH = "json/User.json";
+    protected static final String USER_FILE_PATH = "src/main/java/com/data/User.json";
     protected static final String USER_USERNAME = "username";
     protected static final String USER_PASSWORD = "password";
     protected static final String USER_UUID = "UUID";
