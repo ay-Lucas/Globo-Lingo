@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1444.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers/LoginController.java">
+   <children>
+      <GridPane maxHeight="1024.0" maxWidth="1444.0" minHeight="1024.0" minWidth="1444.0" prefHeight="1024.0" prefWidth="1444.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" prefWidth="182.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" percentWidth="30.0" />
+            <ColumnConstraints hgrow="SOMETIMES" percentWidth="30.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" percentWidth="30.0" prefWidth="130.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fitHeight="247.0" fitWidth="247.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="124.0" />
+               </GridPane.margin>
+               <image>
+                  <Image url="@../../../../../../../../../../../../Downloads/Image%201@1x.png" />
+               </image>
+            </ImageView>
+            <Label maxHeight="27.0" maxWidth="70.0" minHeight="27.0" minWidth="70.0" prefHeight="27.0" prefWidth="70.0" text="Login" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets right="300.0" top="423.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="Rasa Regular" size="28.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernameField" maxHeight="40.0" maxWidth="380.0" minHeight="40.0" minWidth="380.0" prefHeight="40.0" prefWidth="380.0" promptText="Username" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="471.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="passwordField" maxHeight="40.0" maxWidth="380.0" minHeight="40.0" minWidth="380.0" prefHeight="40.0" prefWidth="380.0" promptText="Password" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="546.0" />
+               </GridPane.margin>
+            </TextField>
+            <Button fx:id="loginButton" maxHeight="40.0" maxWidth="103.0" minHeight="40.0" minWidth="103.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="103.0" text="Login" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="622.0" />
+               </GridPane.margin>
+            </Button>
+            <Line endX="190.0" fill="#bbbbbb" startX="-190.0" stroke="#bbbbbb" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="698.0" />
+               </GridPane.margin>
+            </Line>
+            <Label alignment="CENTER" minHeight="23.0" minWidth="75.0" text="or" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="716.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="Rasa Regular" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="signupButton" alignment="CENTER" maxHeight="30.0" maxWidth="75.0" minHeight="30.0" minWidth="75.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" text="Sign up" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="748.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
