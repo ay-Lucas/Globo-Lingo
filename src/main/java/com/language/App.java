@@ -2,12 +2,17 @@ package com.language;
 
 import java.io.IOException;
 
+import com.narration.Narriator;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * JavaFX App
+ */
 public class App extends Application {
 
     private static Scene scene;
@@ -17,7 +22,6 @@ public class App extends Application {
         scene = new Scene(loadFXML("login"), 1440, 1024);
         scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
         stage.setScene(scene);
-        stage.setTitle("Globo-Lingo");
         stage.show();
     }
 
@@ -30,7 +34,12 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
+    public static void playNarrator() throws IOException {
+        Narriator.playSound("Hola mundo");
+    }
+
     public static void main(String[] args) {
         launch();
     }
+
 }
