@@ -32,11 +32,9 @@ public class SystemFACADE {
      * @param firstName the first name of the user
      * @param lastName  the last name of the user
      */
-    public void createAccount(String username, String password, String firstName, String lastName) {
+    public boolean createAccount(String username, String password, String firstName, String lastName) {
         User newUser = new User(username, password, firstName, lastName, 0, null, null, null);
-        if (userList.addUser(newUser)) {
-            login(username, password);
-        }
+        return userList.addUser(newUser);
     }
 
     /**
