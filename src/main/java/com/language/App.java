@@ -2,6 +2,7 @@ package com.language;
 
 import java.io.IOException;
 
+import com.model.SystemFACADE;
 import com.narration.Narriator;
 
 import javafx.application.Application;
@@ -16,6 +17,7 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     private static Scene scene;
+    private static SystemFACADE systemFACADE = new SystemFACADE();
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -39,6 +41,10 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+
+    public static SystemFACADE getSystemFacade() {
+        return systemFACADE;
     }
 
 }
