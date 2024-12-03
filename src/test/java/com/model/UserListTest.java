@@ -45,7 +45,7 @@ public class UserListTest {
         userList.addUser(testUser);
         ArrayList<User> users = userList.getUsers();
         assertEquals(sizeBefore + 1, users.size(), "User list should contain another user");
-        assertTrue(users.contains(testUser), "User list should contain the added user.");
+        assertTrue(users.contains(testUser));
     }
 
     /**
