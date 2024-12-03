@@ -8,6 +8,7 @@
 
 #sidebar {
   -fx-background-color: rgba(0, 0, 0, 0.6);
+  -fx-spacing: 5px;
 }
 
 #logo-label {
@@ -31,15 +32,11 @@ Button:hover {
   -fx-font-size: 24px;
 }
 
-#sidebar Button {
-  -fx-padding: 10px 60px 10px 60px;
-}
-
 #sidebar Button Label {
   -fx-text-fill: white;
 }
 
 #sidebar .button-content {
-  -fx-max-width: 150px;
-  -fx-min-width: 150px;
+  -fx-max-width: 120px;
+  -fx-min-width: 120px;
 }
