@@ -5,3 +5,41 @@
   -fx-background-size: cover;
   -fx-background-position: center;
 }
+
+#sidebar {
+  -fx-background-color: rgba(0, 0, 0, 0.6);
+}
+
+#logo-label {
+  -fx-font-size: 28px;
+  -fx-text-fill: white;
+  -fx-font-weight: bold;
+  -fx-alignment: center;
+}
+
+Button {
+  -fx-background-color: transparent;
+  -fx-font-size: 23px;
+}
+
+Button:hover {
+  -fx-background-color: rgba(255, 255, 255, 0.1);
+}
+
+.ikonli-font-icon {
+  -fx-fill: white;
+  -fx-font-size: 24px;
+}
+
+#sidebar Button {
+  -fx-padding: 10px 60px 10px 60px;
+}
+
+#sidebar Button Label {
+  -fx-text-fill: white;
+}
+
+#sidebar .button-content {
+  -fx-max-width: 150px;
+  -fx-min-width: 150px;
+}
