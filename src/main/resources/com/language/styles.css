@@ -4,11 +4,16 @@
   -fx-background-repeat: no-repeat;
   -fx-background-size: cover;
   -fx-background-position: center;
+  -fx-font-family: "Roboto";
 }
 
 #sidebar {
   -fx-background-color: rgba(0, 0, 0, 0.6);
   -fx-spacing: 5px;
+}
+
+.combo-box {
+  -fx-fill: black;
 }
 
 #logo-label {
@@ -29,14 +34,18 @@ Button:hover {
 
 .ikonli-font-icon {
   -fx-fill: white;
-  -fx-font-size: 24px;
+  -fx-font-size: 20px;
 }
 
 #sidebar Button Label {
   -fx-text-fill: white;
 }
-
+#sidebar Button {
+  -fx-max-width: 181px;
+  -fx-min-width: 100px;
+  -fx-alignment: center;
+}
 #sidebar .button-content {
-  -fx-max-width: 120px;
-  -fx-min-width: 120px;
+  -fx-spacing: 10px;
+  -fx-padding: 0px 0px 0px 23px;
 }
