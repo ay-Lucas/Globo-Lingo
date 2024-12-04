@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.NavbarController" id="sidebar" alignment="TOP_CENTER" spacing="10">
+    <children>
+        <Label prefHeight="87.0" prefWidth="181.0" text="Globolingo" id="logo-label">
+            <font>
+                <Font name="AppleMyungjo Regular" size="28.0" />
+            </font>
+        </Label>
+        
+        <Button onAction="#setHomeScene">
+            <graphic>
+                <HBox styleClass="button-content" alignment="CENTER_LEFT">
+                    <FontIcon iconLiteral="fas-home" />
+                    <Label text="Home" />
+                </HBox>
+            </graphic>
+        </Button>
+        
+        <Button onAction="#setLessonScene">
+            <graphic>
+                <HBox styleClass="button-content" alignment="CENTER_LEFT" >
+                    <FontIcon iconLiteral="fas-book" />
+                    <Label text="Lesson" />
+                </HBox>
+            </graphic>
+        </Button>
+        
+        <Button onAction="#setAvatarScene">
+            <graphic>
+                <HBox styleClass="button-content" alignment="CENTER_LEFT" >
+                    <FontIcon iconLiteral="fas-user" />
+                    <Label text="Avatar" />
+                </HBox>
+            </graphic>
+        </Button>
+        
+        <Button>
+            <graphic>
+                <HBox styleClass="button-content" alignment="CENTER_LEFT" >
+                    <FontIcon iconLiteral="fas-chart-bar" />
+                    <Label text="Results" />
+                </HBox>
+            </graphic>
+        </Button>
+        
+        <Button onAction="#setUserScene">
+            <graphic>
+                <HBox styleClass="button-content" alignment="CENTER_LEFT" >
+                    <FontIcon iconLiteral="fas-user-circle" />
+                    <Label text="User" />
+                </HBox>
+            </graphic>
+        </Button>
+        
+        <Button onAction="#logOut">
+            <graphic>
+                <HBox styleClass="button-content" alignment="CENTER_LEFT" >
+                    <FontIcon iconLiteral="fas-sign-out-alt" />
+                    <Label text="Log out" />
+                </HBox>
+            </graphic>
+        </Button>
+    </children>
+</VBox>

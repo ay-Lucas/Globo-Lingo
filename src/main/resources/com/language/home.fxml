@@ -13,8 +13,8 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            stylesheets="@styles.css">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.HomeController">
+            <!-- stylesheets="@styles.css"> -->
    <children>
       <GridPane layoutX="-7.0" layoutY="-4.0" prefHeight="1024.0" prefWidth="1440.0">
         <columnConstraints>
@@ -28,70 +28,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <VBox alignment="TOP_CENTER" maxWidth="181.0" prefWidth="181.0" GridPane.rowSpan="2147483647" id="sidebar">
-               <children>
-                  <Label prefHeight="87.0" prefWidth="181.0" text="Globolingo" id="logo-label">
-                     <font>
-                        <Font name="AppleMyungjo Regular" size="28.0" />
-                     </font>
-                  </Label>
-                  
-           <Button>
-              <graphic>
-                 <HBox styleClass="button-content">
-                    <FontIcon iconLiteral="fas-home" />
-                    <Region HBox.hgrow="ALWAYS" />
-                    <Label text="Home" />
-                 </HBox>
-              </graphic>
-           </Button>
-           <Button>
-              <graphic>
-                 <HBox styleClass="button-content">
-                    <FontIcon iconLiteral="fas-book" />
-                    <Region HBox.hgrow="ALWAYS" />
-                    <Label text="Lesson" />
-                 </HBox>
-              </graphic>
-           </Button>
-           <Button>
-              <graphic>
-                 <HBox styleClass="button-content">
-                    <FontIcon iconLiteral="fas-user" />
-                    <Region HBox.hgrow="ALWAYS" />
-                    <Label text="Avatar" />
-                 </HBox>
-              </graphic>
-           </Button>
-           <Button>
-              <graphic>
-                 <HBox styleClass="button-content">
-                    <FontIcon iconLiteral="fas-chart-bar" />
-                    <Region HBox.hgrow="ALWAYS" />
-                    <Label text="Results" />
-                 </HBox>
-              </graphic>
-           </Button>
-           <Button>
-              <graphic>
-                 <HBox styleClass="button-content">
-                    <FontIcon iconLiteral="fas-user-circle" />
-                    <Region HBox.hgrow="ALWAYS" />
-                    <Label text="User" />
-                 </HBox>
-              </graphic>
-           </Button>
-           <Button>
-              <graphic>
-                 <HBox styleClass="button-content">
-                    <FontIcon iconLiteral="fas-sign-out-alt" />
-                    <Region HBox.hgrow="ALWAYS" />
-                    <Label text="Log out" />
-                 </HBox>
-              </graphic>
-           </Button>
-        </children>
-            </VBox>
+            <fx:include source="navbar.fxml" GridPane.columnIndex="0" GridPane.rowSpan="3" />
          </children>
       </GridPane>
    </children>
