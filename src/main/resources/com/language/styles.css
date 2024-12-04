@@ -10,6 +10,7 @@
 #sidebar {
   -fx-background-color: rgba(0, 0, 0, 0.6);
   -fx-spacing: 5px;
+  -fx-min-height: 1024px;
 }
 
 .combo-box {
