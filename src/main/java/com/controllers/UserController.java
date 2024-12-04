@@ -4,10 +4,11 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.language.App;
 import com.model.Avatar;
 import com.model.AvatarManager;
+import com.model.SystemFACADE;
 import com.model.User;
-import com.model.UserList;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -39,15 +40,15 @@ public class UserController implements Initializable {
     private Button saveButton;
 
     private AvatarManager avatarManager;
-    private UserList userList;
+    private SystemFACADE systemFACADE;
     private User currentUser;
     private boolean editMode = false;
     private final String IMAGE_BASE_PATH = "./src/main/resources/images/";
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        systemFACADE = App.getSystemFacade();
         avatarManager = new AvatarManager();
-        userList = UserList.getInstance();
 
         setupImageView();
         populateAvatarComboBox();
@@ -78,14 +79,12 @@ public class UserController implements Initializable {
     }
 
     private void loadCurrentUser() {
-        // Load a specific user from User.json - using "robbieWhite" as example
-        currentUser = userList.getUser("robbieWhite");
+        currentUser = systemFACADE.getCurrentUser();
         if (currentUser != null) {
             nameField.setText(currentUser.getFirstName() + " " + currentUser.getLastName());
             usernameField.setText(currentUser.getUsername());
             passwordField.setText(currentUser.getPassword());
-            levelText.setText("Level: 9");
-
+            updateLevelText();
             Avatar userAvatar = currentUser.getAvatar();
             avatarComboBox.setValue(userAvatar.getName());
             updateAvatarImage();
@@ -103,8 +102,7 @@ public class UserController implements Initializable {
             Image image = new Image(imageFile.toURI().toString());
             imageView.setImage(image);
 
-            currentUser.setAvatar(avatarManager.getAvatar(selectedAvatarName));
-            userList.saveUser(currentUser);
+            systemFACADE.setUserAvatar(selectedAvatarName);
         }
     }
 
@@ -129,7 +127,7 @@ public class UserController implements Initializable {
                     currentUser.getAvatar(),
                     currentUser.getCourseList());
 
-            userList.saveUser(currentUser);
+            systemFACADE.getUserList().saveUser(currentUser);
             editMode = false;
             disableEditing();
         }
@@ -137,24 +135,21 @@ public class UserController implements Initializable {
 
     private void upgradeLevel() {
         if (currentUser != null && currentUser.getLevel() < 10) {
-            currentUser.setLevel(10);
-            levelText.setText("Level: 10");
-            levelText.setStyle("-fx-background-color: #ff0000; -fx-text-fill: white;");
-
-            // Get the StackPane parent that contains the circles
+            System.out.println("Upgrading level for user: " + currentUser.getUsername());
+            systemFACADE.incrementUserLevel();
+            updateLevelText();
             StackPane levelContainer = (StackPane) levelText.getParent();
-
-            // Update outer circle (first circle)
             Circle outerCircle = (Circle) levelContainer.getChildren().get(0);
             outerCircle.setFill(Color.RED);
             outerCircle.setOpacity(0.29);
 
-            // Update inner circle (second circle)
             Circle innerCircle = (Circle) levelContainer.getChildren().get(1);
             innerCircle.setFill(Color.RED);
-
-            userList.saveUser(currentUser);
         }
+    }
+
+    private void updateLevelText() {
+        levelText.setText("Level: " + currentUser.getLevel());
     }
 
     private void enableEditing() {
@@ -170,5 +165,4 @@ public class UserController implements Initializable {
         passwordField.setEditable(false);
         saveButton.setDisable(true);
     }
-
 }

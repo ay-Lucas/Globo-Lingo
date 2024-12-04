@@ -30,7 +30,7 @@
          <children>
             <Circle fill="DODGERBLUE" opacity="0.29" radius="135.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fill="#71cbff" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-            <Button fx:id="levelText" mnemonicParsing="false" text="Level: 1">
+            <Button fx:id="levelText" mnemonicParsing="false" text="Level: 10">
                <font>
                   <Font size="28.0" />
                </font>
