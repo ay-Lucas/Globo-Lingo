@@ -31,6 +31,7 @@ public class NavbarController {
     @FXML
     private void logOut() throws IOException {
         App.getSystemFacade().logout();
+        App.setRoot("login");
     }
 
 }
