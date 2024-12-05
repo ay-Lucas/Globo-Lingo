@@ -61,16 +61,16 @@ Button:hover {
   -fx-padding: 10px 10px 10px 10px;
   -fx-text-fill: #ffffff40;
   -fx-alignment: "left";
-  -fx-max-width: 375px;
-  -fx-min-width: 375px;
+  -fx-max-width: 500px;
+  -fx-min-width: 500px;
 }
 
 .lesson-button-enabled {
   -fx-padding: 10px 10px 10px 10px;
   -fx-text-fill: #00c2f2;
   -fx-alignment: "left";
-  -fx-max-width: 400px;
-  -fx-min-width: 400px;
+  -fx-max-width: 500px;
+  -fx-min-width: 500px;
 }
 
 .card {

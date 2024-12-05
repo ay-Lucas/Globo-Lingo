@@ -19,19 +19,20 @@
       <GridPane prefHeight="1024.0" prefWidth="1440.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="181.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="744.4133911132812" minWidth="10.0" prefWidth="419.89947509765625" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="958.4447021484375" minWidth="10.0" prefWidth="45.60052490234375" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="958.4447021484375" minWidth="10.0" prefWidth="660.3577880859375" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="64.52810668945312" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="744.4133911132812" minWidth="10.0" prefWidth="441.39947509765625" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="958.4447021484375" minWidth="10.0" prefWidth="59.02899169921875" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="958.4447021484375" minWidth="10.0" prefWidth="562.4710083007812" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="958.4447021484375" minWidth="10.0" prefWidth="143.39019775390625" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="337.4473876953125" minHeight="0.0" prefHeight="108.79896926879883" vgrow="ALWAYS" />
-          <RowConstraints maxHeight="912.9797959327698" minHeight="10.0" prefHeight="361.7010307312012" vgrow="ALWAYS" />
-          <RowConstraints maxHeight="788.6268157958984" minHeight="10.0" prefHeight="435.67120361328125" vgrow="ALWAYS" />
-            <RowConstraints maxHeight="248.1104736328125" minHeight="0.0" prefHeight="117.35687255859375" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="337.4473876953125" minHeight="0.0" prefHeight="121.48551940917969" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="912.9797959327698" minHeight="10.0" prefHeight="348.5144805908203" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="788.6268157958984" minHeight="10.0" prefHeight="425.8858642578125" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="248.1104736328125" minHeight="0.0" prefHeight="127.6141357421875" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <VBox prefHeight="200.0" prefWidth="535.0" GridPane.columnIndex="1" GridPane.columnSpan="2">
+            <VBox prefHeight="200.0" prefWidth="535.0" GridPane.columnIndex="2" GridPane.columnSpan="2">
                <children>
                   <Label text="Welcome back Shaggy!" textFill="WHITE">
                      <font>
@@ -40,7 +41,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="336.0" prefWidth="509.0" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <VBox alignment="CENTER" prefHeight="336.0" prefWidth="509.0" styleClass="card" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <children>
                   <Label text="Avatar" textFill="WHITE">
                      <font>
@@ -59,7 +60,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox fx:id="lessonSection" prefHeight="336.0" prefWidth="509.0" styleClass="card" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.rowSpan="2">
+            <VBox fx:id="lessonSection" prefHeight="336.0" prefWidth="509.0" styleClass="card" GridPane.columnIndex="4" GridPane.rowIndex="1" GridPane.rowSpan="2">
                <children>
                   <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
@@ -78,7 +79,7 @@
                   <VBox fx:id="lessonSectionButtonContainer" prefHeight="722.0" prefWidth="443.0" />
                </children>
             </VBox>
-            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="197.2001953125" minWidth="10.0" prefWidth="82.29981994628906" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="323.62689208984375" minWidth="10.0" prefWidth="253.70018005371094" />
@@ -94,9 +95,9 @@
                </children>
             </GridPane>
          </children>
-         <!-- <children> -->
-         <!--    <fx:include source="navbar.fxml" GridPane.columnIndex="0" GridPane.rowSpan="10" /> -->
-         <!-- </children> -->
+         <children>
+            <fx:include source="navbar.fxml" GridPane.columnIndex="0" GridPane.rowSpan="10" />
+         </children>
       </GridPane>
    </children>
 </AnchorPane>
