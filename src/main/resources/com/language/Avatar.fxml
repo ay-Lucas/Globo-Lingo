@@ -137,10 +137,6 @@
          <Font size="18.0" />
       </font>
    </Text>
-        <Pane>
-            <children>
-                <fx:include source="navbar.fxml" />
-            </children>
-        </Pane>
+    <fx:include source="navbar.fxml" />
    </children>
 </AnchorPane>
