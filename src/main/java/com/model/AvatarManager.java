@@ -13,11 +13,11 @@ import java.util.List;
 public class AvatarManager {
 
     private List<Avatar> avatars = new ArrayList<>();
-    private final String RESOURCES_PATH = "/images";
-    private final String DEFAULT_AVATAR_DIR = "/default2.0/";
-    private final String LOOT_CRATE_AVATAR_DIR = "/Loot_Crate2.0/";
-    private final String FILE_ENDING = ".png";
-    private final List<String> DEFAULT_AVATAR_NAMES = List.of(
+    private final static String RESOURCES_PATH = "/images";
+    private final static String DEFAULT_AVATAR_DIR = "/default2.0/";
+    private final static String LOOT_CRATE_AVATAR_DIR = "/Loot_Crate2.0/";
+    private final static String FILE_ENDING = ".png";
+    private final static List<String> DEFAULT_AVATAR_NAMES = List.of(
             "Pencil Warrior",
             "Potato Rider",
             "Basic Bobby",
@@ -30,7 +30,7 @@ public class AvatarManager {
             "Unfinished Quest",
             "Paper Sword",
             "Monkey Fartking");
-    private final List<String> CRATE_AVATAR_NAMES = List.of(
+    private final static List<String> CRATE_AVATAR_NAMES = List.of(
             "Keyboard Warrior",
             "Shadow Wing",
             "Fire Storm",
@@ -82,6 +82,12 @@ public class AvatarManager {
             "Ice Shade",
             "Thunder Wing",
             "Dark Storm");
+
+    private final static int DEFAULT_AVATAR_INDEX = 0;
+    public final static Avatar DEFAULT_AVATAR = new Avatar(DEFAULT_AVATAR_NAMES.get(DEFAULT_AVATAR_INDEX),
+            RESOURCES_PATH + LOOT_CRATE_AVATAR_DIR
+                    + DEFAULT_AVATAR_DIR + DEFAULT_AVATAR_NAMES.get(DEFAULT_AVATAR_INDEX) + FILE_ENDING,
+            true);
 
     /**
      * Creates a new AvatarManager
@@ -166,6 +172,6 @@ public class AvatarManager {
                 return next;
             }
         }
-        return new Avatar();
+        return null;
     }
 }
