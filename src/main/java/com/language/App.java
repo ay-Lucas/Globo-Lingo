@@ -2,6 +2,7 @@ package com.language;
 
 import java.io.IOException;
 
+import com.model.Language;
 import com.model.SystemFACADE;
 import com.narration.Narriator;
 
@@ -21,6 +22,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        App.getSystemFacade().login("robbieWhite", "rWhite123");
         scene = new Scene(loadFXML("home"), 1440, 1024);
         scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
         stage.setScene(scene);
