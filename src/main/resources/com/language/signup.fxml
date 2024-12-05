@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1444.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.SignUpController">
+   <children>
+      <GridPane maxHeight="1024.0" maxWidth="1444.0" minHeight="1024.0" minWidth="1444.0" prefHeight="1024.0" prefWidth="1444.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" prefWidth="182.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" percentWidth="30.0" />
+            <ColumnConstraints hgrow="SOMETIMES" percentWidth="30.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" percentWidth="30.0" prefWidth="130.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fitHeight="247.0" fitWidth="247.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="12.0" />
+               </GridPane.margin>
+               <image>
+                        <Image url="@../../images/globolingo_logo.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="firstNameField" maxHeight="40.0" maxWidth="180.0" minHeight="40.0" minWidth="180.0" prefHeight="40.0" prefWidth="180.0" promptText="First Name" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets right="200.0" top="434.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="usernameField" maxHeight="40.0" maxWidth="380.0" minHeight="40.0" minWidth="380.0" prefHeight="40.0" prefWidth="380.0" promptText="Username" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="491.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="passwordField" maxHeight="40.0" maxWidth="380.0" minHeight="40.0" minWidth="380.0" prefHeight="40.0" prefWidth="380.0" promptText="Password (8-64 Characters)" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="546.0" />
+               </GridPane.margin>
+            </TextField>
+            <Button fx:id="signUpButton" maxHeight="40.0" maxWidth="114.0" minHeight="40.0" minWidth="114.0" mnemonicParsing="false" onAction="#signUpPressed" onMouseClicked="#loginPressed" prefHeight="40.0" prefWidth="114.0" text="Sign Up" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="725.0" />
+               </GridPane.margin>
+            </Button>
+            <TextField fx:id="confirmField" layoutX="615.0" layoutY="556.0" maxHeight="40.0" maxWidth="380.0" minHeight="40.0" minWidth="380.0" prefHeight="40.0" prefWidth="380.0" promptText="Confirm Password" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="603.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="phoneNumberField" maxHeight="40.0" maxWidth="380.0" minHeight="40.0" minWidth="380.0" prefHeight="40.0" prefWidth="380.0" promptText="Phone Number" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="660.0" />
+               </GridPane.margin>
+            </TextField>
+            <Button fx:id="existingAccButton" maxHeight="21.0" maxWidth="200.0" minHeight="21.0" minWidth="200.0" mnemonicParsing="false" onAction="#existingAccountPressed" prefHeight="21.0" prefWidth="200.0" text="Login with an existing account" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="787.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets right="270.0" top="378.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="GloboLingo is the most intuitive learning app in the eastern hemisphere" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="312.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <TextField fx:id="lastNameField" maxHeight="40.0" maxWidth="180.0" minHeight="40.0" minWidth="180.0" prefHeight="40.0" prefWidth="180.0" promptText="Last Name" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="200.0" top="434.0" />
+               </GridPane.margin>
+            </TextField>
+            <Label fx:id="invalidUsernameLabel" text="This username is taken!" textFill="RED" visible="false" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets right="285.0" top="502.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="invalidPassLabel" text="Password must be between 8-64 characters in length!" textFill="RED" visible="false" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets right="100.0" top="556.0" />
+               </GridPane.margin>
+            </Label>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
