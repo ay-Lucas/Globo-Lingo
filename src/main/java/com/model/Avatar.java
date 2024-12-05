@@ -11,12 +11,14 @@ public class Avatar {
     private final boolean isDefault;
 
     /**
-     * Default contstructor for Avatar
+     * Creates a copy of another avatar
+     * 
+     * @param avatar
      */
-    public Avatar() {
-        this.name = "default";
-        this.path = "default";
-        this.isDefault = true;
+    public Avatar(Avatar avatar) {
+        this.name = avatar.name;
+        this.path = avatar.path;
+        this.isDefault = avatar.isDefault;
     }
 
     /**
