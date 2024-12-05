@@ -11,10 +11,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Arc;
+import javafx.scene.shape.ArcType;
+import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
 
 import com.language.App;
-import com.model.SystemFACADE;
 
 public class HomeController extends NavbarController implements Initializable {
     private final List<String> LESSON_NAMES = List.of(
@@ -29,6 +34,10 @@ public class HomeController extends NavbarController implements Initializable {
     @FXML
     private Label lessonsCompletedLabel;
 
+    @FXML
+    private Pane progressCircleSection;
+    private final static int MAX_LEVEL = 10;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         String userAvatarPath = App.getSystemFacade().getCurrentUser().getAvatar().getPath();
@@ -37,6 +46,8 @@ public class HomeController extends NavbarController implements Initializable {
         lessonsCompletedLabel.setText(App.getSystemFacade().getUserCourses().get(0).getCompletedLessons() + "/"
                 + App.getSystemFacade().getUserCourses().get(0).getLessons().size());
         setLessonButtons();
+        setProgressCircle(App.getSystemFacade().getCurrentUser().getLevel(), MAX_LEVEL); // Example: Level 2 of 10 (20%
+                                                                                         // progress)
 
     }
 
@@ -59,6 +70,36 @@ public class HomeController extends NavbarController implements Initializable {
             lessonSectionButtonContainer.getChildren().add(button);
         }
 
+    }
+
+    private void setProgressCircle(int level, int maxLevel) {
+        double progress = (double) level / maxLevel;
+
+        Circle outerCircle = new Circle(100, 100, 90); // Adjust radii for spacing
+        Color lightBlue = new Color(.443, .796, 1.0, 1.0);
+        outerCircle.setFill(lightBlue);
+        outerCircle.setStroke(Color.SLATEGREY);
+        outerCircle.setStrokeWidth(25);
+
+        Arc progressArc = new Arc(100, 100, 90, 90, 90, 0); // Start with no progress
+        progressArc.setType(ArcType.OPEN);
+        Color blue = new Color(.25, .584, .898, 1.0);
+        progressArc.setStroke(blue);
+        progressArc.setStrokeWidth(25);
+        progressArc.setFill(Color.TRANSPARENT);
+        progressArc.setStrokeLineCap(javafx.scene.shape.StrokeLineCap.ROUND);
+
+        double sweepAngle = -360 * progress;
+        progressArc.setLength(sweepAngle);
+
+        Label levelText = new Label("Level " + level);
+        levelText.setLayoutX(68);
+        levelText.setLayoutY(89);
+        levelText.setFont(new Font(20));
+        levelText.setStyle("-fx-font-weight: bold; -fx-text-fill: white;");
+
+        progressCircleSection.getChildren().clear();
+        progressCircleSection.getChildren().addAll(outerCircle, progressArc, levelText);
     }
 
 }

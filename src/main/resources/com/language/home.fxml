@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -48,7 +49,7 @@
                   </Label>
                   <VBox alignment="CENTER" prefHeight="274.0" prefWidth="418.0">
                      <children>
-                        <ImageView fx:id="homeAvatarImage" fitHeight="222.0" fitWidth="296.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="homeAvatarImage" fitHeight="182.0" fitWidth="335.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </VBox>
                   <Label text="Thunder King" textFill="#00c2f2">
@@ -77,6 +78,21 @@
                   <VBox fx:id="lessonSectionButtonContainer" prefHeight="722.0" prefWidth="443.0" />
                </children>
             </VBox>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="197.2001953125" minWidth="10.0" prefWidth="82.29981994628906" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="323.62689208984375" minWidth="10.0" prefWidth="253.70018005371094" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="323.62689208984375" minWidth="10.0" prefWidth="62.5162353515625" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="114.25724792480469" minHeight="10.0" prefHeight="50.20103454589844" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="213.7129364013672" minHeight="10.0" prefHeight="203.8858642578125" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="77.48553466796875" minHeight="10.0" prefHeight="74.1141357421875" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Pane fx:id="progressCircleSection" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
          </children>
          <!-- <children> -->
          <!--    <fx:include source="navbar.fxml" GridPane.columnIndex="0" GridPane.rowSpan="10" /> -->
