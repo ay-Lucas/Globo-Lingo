@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class SignUpController  {
+public class SignUpController {
 
     @FXML
     private TextField firstNameField;
@@ -27,6 +27,7 @@ public class SignUpController  {
     @FXML
     private Label invalidPasswordLabel;
 
+    @FXML
     private void signUpPressed() throws IOException {
         String firstName = firstNameField.getText();
         String lastName = lastNameField.getText();
@@ -34,10 +35,10 @@ public class SignUpController  {
         String password = passwordField.getText();
         String confirm = confirmField.getText();
         String phoneNumber = phoneNumberField.getText();
-        if(!isPasswordValid(password))  {
+        if (!isPasswordValid(password)) {
             invalidPasswordLabel.setVisible(true);
         } else {
-            if(App.getSystemFacade().createAccount(username, password, firstName, lastName))  {
+            if (App.getSystemFacade().createAccount(username, password, firstName, lastName)) {
                 invalidPasswordLabel.setVisible(false); // For sanity sake
                 invalidUsernameLabel.setVisible(false); // Ditto
                 App.setRoot("login");
@@ -47,10 +48,11 @@ public class SignUpController  {
         }
     }
 
-    private boolean isPasswordValid(String password)  {
+    private boolean isPasswordValid(String password) {
         return password.length() >= 8 && password.length() <= 64;
     }
 
+    @FXML
     private void existingAccountPressed() throws IOException {
         App.setRoot("login");
     }
