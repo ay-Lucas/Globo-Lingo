@@ -41,12 +41,47 @@ Button:hover {
 #sidebar Button Label {
   -fx-text-fill: white;
 }
+
 #sidebar Button {
   -fx-max-width: 181px;
   -fx-min-width: 100px;
   -fx-alignment: center;
 }
+
 #sidebar .button-content {
   -fx-spacing: 10px;
   -fx-padding: 0px 0px 0px 23px;
+}
+
+.bold {
+  -fx-font-weight: bold;
+}
+
+.lesson-button-disabled {
+  -fx-padding: 10px 10px 10px 10px;
+  -fx-text-fill: #ffffff40;
+  -fx-alignment: "left";
+  -fx-max-width: 375px;
+  -fx-min-width: 375px;
+}
+
+.lesson-button-enabled {
+  -fx-padding: 10px 10px 10px 10px;
+  -fx-text-fill: #00c2f2;
+  -fx-alignment: "left";
+  -fx-max-width: 400px;
+  -fx-min-width: 400px;
+}
+
+.card {
+  -fx-border-color: #00c2f2;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 20, 0, 0, 0);
+  -fx-spacing: 10px;
+  -fx-alignment: center;
+  -fx-padding: 30px;
+  -fx-background-color: rgba(0.39, 8.24, 14.9, 0.5);
+  -fx-border-width: 2px;
+  -fx-border-radius: 20px;
+  -fx-border-style: solid;
+  -fx-background-radius: 20px;
 }
