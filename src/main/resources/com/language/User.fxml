@@ -110,5 +110,6 @@
             </Button>
          </children>
       </Pane>
+    <fx:include source="navbar.fxml" />
    </children>
 </AnchorPane>
