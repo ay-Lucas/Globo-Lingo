@@ -39,7 +39,7 @@
       </StackPane>
       <Pane layoutX="312.0" layoutY="182.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="376.0" prefWidth="303.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Current Avatar" x="41.0" y="56.0">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Avatar" x="41.0" y="56.0">
                <font>
                   <Font name="System Bold" size="32.0" />
                </font>
@@ -53,12 +53,12 @@
       </Pane>
       <Pane layoutX="715.0" layoutY="182.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="640.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="User Information" x="216.0" y="49.0">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="User Information" x="190.0" y="49.0">
                <font>
                   <Font name="System Bold" size="32.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="113.62158203125" x="61.0" y="106.0">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="113.62158203125" x="61.0" y="106.0">
                <font>
                   <Font size="28.0" />
                </font>
@@ -68,7 +68,7 @@
                   <Font size="28.0" />
                </font>
             </TextField>
-            <Text layoutY="-30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="169.62158203125" x="61.0" y="258.0">
+            <Text fill="WHITE" layoutY="-30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="169.62158203125" x="61.0" y="258.0">
                <font>
                   <Font size="28.0" />
                </font>
@@ -78,7 +78,7 @@
                   <Font size="28.0" />
                </font>
             </TextField>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="169.62158203125" x="61.0" y="372.0">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="169.62158203125" x="61.0" y="372.0">
                <font>
                   <Font size="28.0" />
                </font>
@@ -88,7 +88,7 @@
                   <Font size="28.0" />
                </font>
             </TextField>
-            <Text layoutY="-30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verification Code:" wrappingWidth="308.82147216796875" x="61.0" y="528.0">
+            <Text fill="WHITE" layoutY="-30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verification Code:" wrappingWidth="308.82147216796875" x="61.0" y="528.0">
                <font>
                   <Font size="28.0" />
                </font>
@@ -98,12 +98,12 @@
                   <Font size="28.0" />
                </font>
             </TextField>
-            <Button fx:id="editButton" layoutX="61.0" layoutY="608.0" mnemonicParsing="false" onAction="#handleEditButton" prefHeight="65.0" prefWidth="133.0" text="Edit">
+            <Button fx:id="editButton" layoutX="61.0" layoutY="608.0" mnemonicParsing="false" onAction="#handleEditButton" prefHeight="65.0" prefWidth="133.0" text="Edit" textFill="WHITE">
                <font>
                   <Font size="36.0" />
                </font>
             </Button>
-            <Button fx:id="saveButton" layoutX="415.0" layoutY="608.0" mnemonicParsing="false" onAction="#handleSaveButton" prefHeight="65.0" prefWidth="133.0" text="Save">
+            <Button fx:id="saveButton" layoutX="415.0" layoutY="608.0" mnemonicParsing="false" onAction="#handleSaveButton" prefHeight="65.0" prefWidth="133.0" text="Save" textFill="WHITE">
                <font>
                   <Font size="36.0" />
                </font>
