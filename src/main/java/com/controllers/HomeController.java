@@ -55,7 +55,7 @@ public class HomeController extends NavbarController implements Initializable {
         int completedLessons = App.getSystemFacade().getUserCourses().get(0).getCompletedLessons();
         for (int i = 0; i < LESSON_NAMES.size(); i++) {
             Button button = new Button(i + 1 + ". " + LESSON_NAMES.get(i));
-            if (i < completedLessons) {
+            if (i < completedLessons + 1) { // Add 1 to enable next lesson
                 button.getStyleClass().add("lesson-button-enabled");
                 button.setOnAction(event -> {
                     try {
@@ -65,8 +65,9 @@ public class HomeController extends NavbarController implements Initializable {
                     }
 
                 });
-            } else
+            } else {
                 button.getStyleClass().add("lesson-button-disabled");
+            }
             lessonSectionButtonContainer.getChildren().add(button);
         }
 
