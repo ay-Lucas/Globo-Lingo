@@ -85,7 +85,7 @@ public class AvatarManager {
 
     private final static int DEFAULT_AVATAR_INDEX = 0;
     public final static Avatar DEFAULT_AVATAR = new Avatar(DEFAULT_AVATAR_NAMES.get(DEFAULT_AVATAR_INDEX),
-            RESOURCES_PATH + LOOT_CRATE_AVATAR_DIR
+            RESOURCES_PATH
                     + DEFAULT_AVATAR_DIR + DEFAULT_AVATAR_NAMES.get(DEFAULT_AVATAR_INDEX) + FILE_ENDING,
             true);
 
