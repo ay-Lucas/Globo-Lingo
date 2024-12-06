@@ -12,6 +12,7 @@ public class Lesson {
 
     private String name;
     private boolean isComplete;
+    private boolean passed;
     private ArrayList<Question> questions;
     private int userScore;
     private int maxScore;
@@ -28,7 +29,9 @@ public class Lesson {
         this.userScore = 0;
         this.maxScore = 10;
         this.isComplete = false;
+        this.passed = false;
         this.generateQuestions(lessonNumber);
+        this.setName(lessonNumber);
     }
 
     /**
@@ -47,6 +50,13 @@ public class Lesson {
      */
     public boolean getIsComplete() {
         return this.isComplete;
+    }
+
+    /**
+     * @return bool value of if passed or failed
+     */
+    public boolean getPassed()  {
+        return this.passed;
     }
 
     /**
@@ -209,10 +219,22 @@ public class Lesson {
     /**
      * Sets the name of the lesson.
      * 
-     * @param name the name to set for the lesson
+     * @param lessonNumber index of lesson name
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setName(int lessonNumber) {
+        switch(lessonNumber)  {
+            case 1 -> this.name = "basics";
+            case 2 -> this.name = "greetings";
+            case 3 -> this.name = "travel";
+            case 4 -> this.name = "food";
+            case 5 -> this.name = "relationships";
+            case 6 -> this.name = "household items";
+            case 7 -> this.name = "occupations";
+            case 8 -> this.name = "school";
+            case 9 -> this.name = "shopping";
+            case 10 -> this.name = "hobbies";
+            default -> this.name = "default name";
+        }
     }
 
     /**
@@ -296,6 +318,7 @@ public class Lesson {
                 System.out.println("WRONG");
             }
         }
+        this.passed = (userScore >= 7);
         System.out.println("SCORE: " + userScore + " out of " + maxScore);
     }
 }

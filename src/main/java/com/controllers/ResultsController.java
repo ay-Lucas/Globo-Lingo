@@ -1,9 +1,7 @@
 package com.controllers;
 
-import java.io.IOException;
-
 import com.language.App;
-
+import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;

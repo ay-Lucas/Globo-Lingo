@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Course {
     private ArrayList<Lesson> lessons;
     private Lesson currentLesson;
+    private Lesson nextLesson;
     private Language language;
     private User user;
     private int completedLessons;
@@ -42,6 +43,7 @@ public class Course {
         this.lessons = new ArrayList<>();
         generateLessons();
         this.currentLesson = lessons.get(currentLessonNum);
+        this.nextLesson = lessons.get(currentLessonNum+1);
         this.language = language;
         this.user = user;
     }
@@ -54,6 +56,16 @@ public class Course {
      */
     public Lesson getCurrentLesson() {
         return currentLesson;
+    }
+    
+    /**
+     * This is pretty much entirely for the purpose of displaying the next lesson
+     * on the results page.
+     * 
+     * @return the lesson object representing the next lesson to be done
+     */
+    public Lesson getNextLesson()  {
+        return nextLesson;
     }
 
     /**
