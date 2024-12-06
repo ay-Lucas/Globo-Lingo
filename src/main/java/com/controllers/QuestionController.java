@@ -15,6 +15,8 @@ import javafx.scene.layout.VBox;
 
 public class QuestionController {
 
+    // Needs the initalize method
+
     @FXML
     private VBox answerBox; // VBox from the FXML with fx:id="answerBox"
 
@@ -28,6 +30,11 @@ public class QuestionController {
     public static void handleCheckButton() {
         // Handle the action of the "Check" button (Placeholder for now)
         System.out.println("Check button clicked");
+    }
+
+    @FXML static void handleSkipButton() {
+        // Handle the action of the "Skip" button (Placeholder for now)
+        System.out.println("Skip button clicked");
     }
 
     @FXML
