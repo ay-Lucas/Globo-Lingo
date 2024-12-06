@@ -107,4 +107,12 @@ public class MultipleChoice implements Question  {
             options.get(3);
         }
     }
+    @Override
+    public String getPrompt() {
+        return this.getPrompt();
+    }
+    @Override
+    public String[] getWrongAnswers() {
+        return (String[]) this.options.toArray();
+    }
 }

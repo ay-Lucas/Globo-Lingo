@@ -59,4 +59,14 @@ public class SentenceBuild implements Question {
         return "Translate the words to match the phrase: \"" + 
         sentence.getEnglishPhrase() + "\"";
     }
+
+    @Override
+    public String getPrompt() {
+        return this.sentence.toString();
+    }
+
+    @Override
+    public String[] getWrongAnswers() {
+        return null;
+    }
 }

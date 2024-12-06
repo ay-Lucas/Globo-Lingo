@@ -72,4 +72,9 @@ public class Flashcard implements Question  {
     public String toString()  {
         return "What does \"" + this.prompt + "\" mean in English?";
     }
+
+    public String[] getWrongAnswers() {
+        return null;
+    }
+
 }

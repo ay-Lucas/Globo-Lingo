@@ -69,4 +69,14 @@ public class NarratedQ implements Question {
     public String toString() {
         return "What does this mean in english? Please type in your response.";
     }
+
+    @Override
+    public String getPrompt() {
+        return this.prompt;
+    }
+
+    @Override
+    public String[] getWrongAnswers() {
+        return null;
+    }
 }
