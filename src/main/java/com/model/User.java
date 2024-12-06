@@ -1,10 +1,7 @@
 package com.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.UUID;
-
-import software.amazon.awssdk.services.polly.internal.UserAgentUtils;
 
 /**
  * A User
@@ -29,23 +26,6 @@ public class User {
     private final static int MAX_USERNAME_LENGTH = 64;
 
     /**
-     *
-     * Creates a new instance of User
-     * 
-     * @param username
-     * @param firstName
-     * @param lastName
-     */
-    public User(String username, String firstName, String lastName) {
-        setUsername(username);
-        setFirstName(firstName);
-        setLastName(lastName);
-        unlockedAvatars = new ArrayList<>();
-        courseList = new ArrayList<>();
-        courseList.add(new Course(Language.SPANISH, this));
-    }
-
-    /**
      * Creates a new instance of User
      * 
      * @param username
@@ -54,15 +34,12 @@ public class User {
     public User(String username, String password) {
         setUsername(username);
         setPassword(password);
-        setFirstName(firstName);
-        setLastName(lastName);
-        setUUID(UUID.randomUUID());
-        unlockedAvatars = new ArrayList<>();
-        courseList = new ArrayList<>();
+        this.level = 1;
+        this.uuid = UUID.randomUUID();
+        this.avatar = new Avatar(AvatarManager.DEFAULT_AVATAR);
+        this.unlockedAvatars = new ArrayList<>();
+        this.courseList = new ArrayList<>();
         courseList.add(new Course(Language.SPANISH, this));
-        this.uuid = UUID.randomUUID(); // Generate new UUID for the user
-        this.avatar = new AvatarManager().getAvatar("default"); // Set default avatar
-        this.level = 1; // Set initial level
     }
 
     /**
@@ -70,27 +47,43 @@ public class User {
      * 
      * @param username
      * @param password
-     * @param uuid
+     * @param firstName
+     * @param lastName
      */
-    public User(String username, String password, String firstName, String lastname, int level, UUID uuid,
-            Avatar avatar, ArrayList<Avatar> unlockedAvatars) {
+    public User(String username, String password, String firstName, String lastName) {
         setUsername(username);
         setPassword(password);
         this.firstName = firstName;
-        this.lastName = lastname;
-        this.level = level;
-        if (uuid == null) {
-            this.uuid = UUID.randomUUID(); // Generate new UUID for the user
-        } else {
-            this.uuid = uuid;
-        }
-        if (avatar == null) {
-            this.avatar = new Avatar();
-        } else {
-            this.avatar = avatar;
-        }
+        this.lastName = lastName;
+        this.level = 1;
+        this.uuid = UUID.randomUUID();
+        this.avatar = new Avatar(AvatarManager.DEFAULT_AVATAR);
         this.unlockedAvatars = new ArrayList<>();
         this.courseList = new ArrayList<>();
+        courseList.add(new Course(Language.SPANISH, this));
+    }
+
+    /**
+     * Creates a new instance of User
+     * 
+     * @param username
+     * @param password
+     * @param firstName
+     * @param lastName
+     */
+    public User(String username, String password, String firstName, String lastName, int level, UUID uuid,
+            Avatar avatar,
+            ArrayList<Avatar> avatars) {
+        setUsername(username);
+        setPassword(password);
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.level = level;
+        this.uuid = uuid != null ? uuid : UUID.randomUUID();
+        this.avatar = avatar != null ? avatar : AvatarManager.DEFAULT_AVATAR;
+        this.unlockedAvatars = avatars != null ? avatars : new ArrayList<>();
+        this.courseList = new ArrayList<>();
+        courseList.add(new Course(Language.SPANISH, this));
     }
 
     // Getters

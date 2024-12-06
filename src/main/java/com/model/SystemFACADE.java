@@ -16,7 +16,7 @@ public class SystemFACADE {
     }
 
     public boolean createAccount(String username, String password, String firstName, String lastName) {
-        User newUser = new User(username, password, firstName, lastName, 0, null, null, null);
+        User newUser = new User(username, password, firstName, lastName);
         return userList.addUser(newUser);
     }
 
@@ -131,5 +131,4 @@ public class SystemFACADE {
         return currentUser.getCourseList();
     }
 
-    
 }
