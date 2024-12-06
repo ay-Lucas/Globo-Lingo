@@ -9,38 +9,69 @@ import com.model.Question;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 public class QuestionController {
 
     @FXML
+    private VBox answerBox; // VBox from the FXML with fx:id="answerBox"
+
+    @FXML
+    private Pane promptBox; // Pane from the FXML with fx:id="promptBox"
+
+    @FXML
+    private Pane score; // Pane from the FXML with fx:id="score"
+
+    @FXML
     public static void handleCheckButton() {
+        // Handle the action of the "Check" button (Placeholder for now)
+        System.out.println("Check button clicked");
     }
 
     @FXML
-    public void setAnwserButtons() {
+    public void setAnswerButtons() {
         Question currentQuestion = App.getSystemFacade().getCurrentQuestion();
+        if (currentQuestion == null) return;
+
+        // Clear the answerBox in case it already has buttons
+        answerBox.getChildren().clear();
+
+        // Add the correct answer button
         Button answerButton = new Button(currentQuestion.getAnswer());
-        // placed in the vbox with the fxid "answerBox"
-        
-        if (currentQuestion.getWrongAnswers() != null) { // Check if the array exists
-            for (int i = 0; i < currentQuestion.getWrongAnswers().length; i++) {
-                Button wrongAnswerButton = new Button(currentQuestion.getWrongAnswers()[i]);
-                // placed in the vbox  with the fxid "answerBox"
+        answerBox.getChildren().add(answerButton);
+
+        // Add buttons for wrong answers
+        if (currentQuestion.getWrongAnswers() != null) {
+            for (String wrongAnswer : currentQuestion.getWrongAnswers()) {
+                Button wrongAnswerButton = new Button(wrongAnswer);
+                answerBox.getChildren().add(wrongAnswerButton);
             }
         }
     }
 
     @FXML
     public void updateScore() {
-        int score = App.getSystemFacade().getCurrentLesson().getUserScore();
+        int scoreValue = App.getSystemFacade().getCurrentLesson().getUserScore();
         int maxScore = App.getSystemFacade().getCurrentLesson().getMaxScore();
-        // Needs a label to insert in the pane with the fxid "score" that will have the format score / max score
+
+        // Clear the score Pane and add a new label with the formatted score
+        score.getChildren().clear();
+        Label scoreLabel = new Label(scoreValue + " / " + maxScore);
+        score.getChildren().add(scoreLabel);
     }
 
-    @FXML void setPrompt() {
+    @FXML
+    public void setPrompt() {
         Question currentQuestion = App.getSystemFacade().getCurrentQuestion();
+        if (currentQuestion == null) return;
+
         String prompt = currentQuestion.getPrompt();
-        // needs a label to insert in the pane with the fxid "promptBox"
+
+        // Clear the promptBox and add a new label with the prompt
+        promptBox.getChildren().clear();
+        Label promptLabel = new Label(prompt);
+        promptBox.getChildren().add(promptLabel);
     }
 }
