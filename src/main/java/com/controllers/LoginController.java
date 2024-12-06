@@ -33,7 +33,7 @@ public class LoginController {
 
     @FXML
     private void switchToSignUp() throws IOException  {
-        App.setRoot("signUp");
+        App.setRoot("signup");
     }
 
     @FXML
