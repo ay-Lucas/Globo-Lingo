@@ -18,6 +18,7 @@ public class Lesson {
     private int maxScore;
     private int difficulty;
     private Scanner k = new Scanner(System.in);
+    private int lessonNumber;
 
     /**
      * Constructs a new Lesson with the specified lesson number, initializing the
@@ -32,6 +33,16 @@ public class Lesson {
         this.passed = false;
         this.generateQuestions(lessonNumber);
         this.setName(lessonNumber);
+        this.lessonNumber = lessonNumber;
+    }
+
+    /**
+     * Gets lesson number
+     * 
+     * @return lesson number 1 - 10
+     */
+    public int getLessonNumber() {
+        return this.lessonNumber;
     }
 
     /**
@@ -55,7 +66,7 @@ public class Lesson {
     /**
      * @return bool value of if passed or failed
      */
-    public boolean getPassed()  {
+    public boolean getPassed() {
         return this.passed;
     }
 
@@ -222,7 +233,7 @@ public class Lesson {
      * @param lessonNumber index of lesson name
      */
     public void setName(int lessonNumber) {
-        switch(lessonNumber)  {
+        switch (lessonNumber) {
             case 1 -> this.name = "basics";
             case 2 -> this.name = "greetings";
             case 3 -> this.name = "travel";
@@ -321,4 +332,5 @@ public class Lesson {
         this.passed = (userScore >= 7);
         System.out.println("SCORE: " + userScore + " out of " + maxScore);
     }
+
 }
