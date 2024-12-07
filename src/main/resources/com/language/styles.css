@@ -29,7 +29,7 @@ Button {
   -fx-font-size: 23px;
 }
 
-Button:hover {
+.button:hover {
   -fx-background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -84,4 +84,37 @@ Button:hover {
   -fx-border-radius: 20px;
   -fx-border-style: solid;
   -fx-background-radius: 20px;
+}
+
+.question-answer-button {
+  -fx-border-color: #00c2f2;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 20, 0, 0, 0);
+  -fx-spacing: 10px;
+  -fx-alignment: center;
+  -fx-padding: 20px;
+  -fx-background-color: rgba(0.39, 8.24, 14.9, 0.5);
+  -fx-border-width: 2px;
+  -fx-border-radius: 20px;
+  -fx-border-style: solid;
+  -fx-background-radius: 20px;
+  -fx-max-width: 200px;
+  -fx-min-width: 200px;
+  -fx-text-fill: white;
+}
+
+.question-button {
+  -fx-border-color: #979dac;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 20, 0, 0, 0);
+  -fx-spacing: 10px;
+  -fx-alignment: center;
+  -fx-padding: 20px;
+  -fx-background-color: #7c92a2;
+  -fx-border-width: 1px;
+  -fx-border-radius: 20px;
+  -fx-border-style: solid;
+  -fx-background-radius: 20px;
+  -fx-max-width: 150px;
+  -fx-min-width: 150px;
+  -fx-max-height: 50px;
+  -fx-text-fill: white;
 }
