@@ -53,9 +53,9 @@
                </children>
             </VBox>
          </children>
-         <!-- <children> -->
-            <!-- <fx:include source="navbar.fxml" GridPane.columnIndex="0" GridPane.rowSpan="10" /> -->
-         <!-- </children> -->
+         <children>
+            <fx:include source="navbar.fxml" GridPane.columnIndex="0" GridPane.rowSpan="10" />
+         </children>
       </GridPane>
    </children>
 </AnchorPane>

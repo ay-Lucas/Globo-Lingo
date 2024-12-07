@@ -73,5 +73,6 @@
             <Font size="72.0" />
          </font>
       </Text>
+            <fx:include source="navbar.fxml" GridPane.columnIndex="0" GridPane.rowSpan="10" />
    </children>
 </AnchorPane>

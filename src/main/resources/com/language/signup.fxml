@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -17,10 +10,10 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1444.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.SignUpController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1444.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.SignUpController">
    <children>
       <GridPane maxHeight="1024.0" maxWidth="1444.0" minHeight="1024.0" minWidth="1444.0" prefHeight="1024.0" prefWidth="1444.0">
         <columnConstraints>
@@ -56,10 +49,13 @@
                   <Insets top="546.0" />
                </GridPane.margin>
             </TextField>
-            <Button fx:id="signUpButton" maxHeight="40.0" maxWidth="114.0" minHeight="40.0" minWidth="114.0" mnemonicParsing="false" onAction="#signUpPressed" prefHeight="40.0" prefWidth="114.0" text="Sign Up" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+            <Button fx:id="signUpButton" maxHeight="50.0" maxWidth="135.0" minHeight="40.0" minWidth="114.0" mnemonicParsing="false" onAction="#signUpPressed" prefHeight="50.0" prefWidth="135.0" text="Sign Up" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets top="725.0" />
                </GridPane.margin>
+               <font>
+                  <Font name="Roboto Medium" size="18.0" />
+               </font>
             </Button>
             <TextField fx:id="confirmField" layoutX="615.0" layoutY="556.0" maxHeight="40.0" maxWidth="380.0" minHeight="40.0" minWidth="380.0" prefHeight="40.0" prefWidth="380.0" promptText="Confirm Password" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                <GridPane.margin>
@@ -71,28 +67,20 @@
                   <Insets top="660.0" />
                </GridPane.margin>
             </TextField>
-            <Button fx:id="existingAccButton" maxHeight="21.0" maxWidth="200.0" minHeight="21.0" minWidth="200.0" mnemonicParsing="false" onAction="#existingAccountPressed" prefHeight="21.0" prefWidth="200.0" text="Login with an existing account" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+            <Button fx:id="existingAccButton" maxHeight="105.0" maxWidth="386.0" minHeight="21.0" minWidth="200.0" mnemonicParsing="false" onAction="#existingAccountPressed" prefHeight="105.0" prefWidth="386.0" text="Login with an existing account" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets top="787.0" />
                </GridPane.margin>
                <font>
-                  <Font size="12.0" />
+                  <Font name="Roboto Medium" size="14.0" />
                </font>
             </Button>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets right="270.0" top="378.0" />
                </GridPane.margin>
                <font>
                   <Font size="28.0" />
-               </font>
-            </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="GloboLingo is the most intuitive learning app in the eastern hemisphere" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
-               <GridPane.margin>
-                  <Insets top="312.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="16.0" />
                </font>
             </Text>
             <TextField fx:id="lastNameField" maxHeight="40.0" maxWidth="180.0" minHeight="40.0" minWidth="180.0" prefHeight="40.0" prefWidth="180.0" promptText="Last Name" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">

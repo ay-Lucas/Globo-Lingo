@@ -64,7 +64,7 @@
                <children>
                   <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="74.0" prefWidth="550.0" text="Lessons" textFill="WHITE">
+                        <Label prefHeight="74.0" prefWidth="388.0" text="Lessons" textFill="WHITE">
                            <font>
                               <Font name="Roboto Medium" size="48.0" />
                            </font>
@@ -96,7 +96,7 @@
             </GridPane>
          </children>
          <children>
-            <!-- <fx:include source="navbar.fxml" GridPane.columnIndex="0" GridPane.rowSpan="10" /> -->
+            <fx:include source="navbar.fxml" GridPane.columnIndex="0" GridPane.rowSpan="10" />
          </children>
       </GridPane>
    </children>
