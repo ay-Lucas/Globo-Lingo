@@ -1,0 +1,17 @@
+Vocabulary:
+- Airport = Aeropuerto
+- Train = Tren
+- Ticket = Billete
+- Map = Mapa
+- Passport = Pasaporte
+- City = Ciudad
+- Luggage = Equipaje
+
+Phrases:
+- Where is the nearest...? = ¿Dónde está el más cercano...?
+- I need a ticket to... = Necesito un billete para...
+- What time is my...? = ¿A qué hora es mi...?
+
+Examples:
+- ¿Dónde está el aeropuerto? (Where is the airport?)
+- Necesito un mapa de la ciudad. (I need a map of the city.)

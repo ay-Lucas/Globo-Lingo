@@ -1,0 +1,17 @@
+Vocabulary:
+- Store = Tienda
+- Mall = Centro comercial
+- Price = Precio
+- Sale = Venta
+- Discount = Descuento
+- Receipt = Recibo
+- Brand = Marca
+
+Phrases:
+- Where is the nearest store? = ¿Dónde está la tienda más cercana?
+- Can I return this? = ¿Puedo devolver esto?
+- What brand do you recommend? = ¿Qué marca recomiendas?
+
+Examples:
+- ¿Dónde está la tienda más cercana? (Where is the nearest store?)
+- Quiero un recibo, por favor. (I would like a receipt, please.)

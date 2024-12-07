@@ -1,0 +1,17 @@
+Vocabulary:
+- Mother = Madre
+- Father = Padre
+- Brother = Hermano
+- Sister = Hermana
+- Family = Familia
+- Love = Amor
+- Friend = Amigo
+
+Phrases:
+- Who is your...? = ¿Quién es tu...?
+- I love my... = Amo a mi...
+- Tell me about your family = Cuéntame sobre tu familia
+
+Examples:
+- Amo a mi madre. (I love my mother.)
+- Este es mi hermano. (This is my brother.)

@@ -1,0 +1,17 @@
+Vocabulary:
+- Water = Agua
+- Bread = Pan
+- Coffee = Café
+- Juice = Jugo
+- Salad = Ensalada
+- Chicken = Pollo
+- Breakfast = Desayuno
+
+Phrases:
+- Can I have some...? = ¿Puedo tener un poco de...?
+- I would like to order... = Me gustaría pedir...
+- What do you recommend? = ¿Qué recomiendas?
+
+Examples:
+- ¿Puedo tener un poco de agua? (Can I have some water?)
+- Me gustaría pedir una ensalada. (I would like to order a salad.)

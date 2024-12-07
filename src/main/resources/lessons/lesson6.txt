@@ -1,0 +1,17 @@
+Vocabulary:
+- House = Casa
+- Kitchen = Cocina
+- Bathroom = Baño
+- Chair = Silla
+- Table = Mesa
+- Light = Luz
+- Bed = Cama
+
+Phrases:
+- Where is the kitchen? = ¿Dónde está la cocina?
+- I need a chair = Necesito una silla
+- The light is broken = La luz está rota
+
+Examples:
+- ¿Dónde está la cocina? (Where is the kitchen?)
+- Necesito una silla para mi habitación. (I need a chair for my room.)

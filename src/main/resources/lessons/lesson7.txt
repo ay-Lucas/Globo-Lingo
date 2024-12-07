@@ -1,0 +1,17 @@
+Vocabulary:
+- Doctor = Médico
+- Teacher = Maestro
+- Engineer = Ingeniero
+- Lawyer = Abogado
+- Artist = Artista
+- Pilot = Piloto
+- Nurse = Enfermero
+
+Phrases:
+- What does a... do? = ¿Qué hace un...?
+- I want to be a... = Quiero ser...
+- Do you have experience as a...? = ¿Tienes experiencia como...?
+
+Examples:
+- Quiero ser piloto. (I want to be a pilot.)
+- ¿Qué hace un chef? (What does a chef do?)

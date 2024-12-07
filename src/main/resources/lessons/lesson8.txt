@@ -1,0 +1,17 @@
+Vocabulary:
+- School = Escuela
+- Class = Clase
+- Teacher = Maestro
+- Homework = Tarea
+- Exam = Examen
+- Book = Libro
+- Library = Biblioteca
+
+Phrases:
+- I need help with my homework = Necesito ayuda con mi tarea
+- What is your favorite subject? = ¿Cuál es tu materia favorita?
+- The exam is next week = El examen es la próxima semana
+
+Examples:
+- Tengo tarea que hacer. (I have homework to complete.)
+- Me gusta leer libros. (I like to read books.)

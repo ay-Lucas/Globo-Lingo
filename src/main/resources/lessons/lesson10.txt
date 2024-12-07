@@ -1,0 +1,17 @@
+Vocabulary:
+- Football = Fútbol
+- Basketball = Baloncesto
+- Swimming = Natación
+- Running = Correr
+- Gardening = Jardinería
+- Reading = Leer
+- Painting = Pintura
+
+Phrases:
+- I enjoy playing... = Disfruto jugar...
+- What is your favorite hobby? = ¿Cuál es tu pasatiempo favorito?
+- Traveling broadens the mind = Viajar amplía la mente
+
+Examples:
+- Disfruto jugar al fútbol. (I enjoy playing football.)
+- Me gusta pintar paisajes. (I like painting landscapes.)

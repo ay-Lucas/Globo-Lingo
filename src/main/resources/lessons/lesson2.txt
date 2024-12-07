@@ -1,0 +1,18 @@
+Vocabulary:
+- Hello = Hola
+- Goodbye = Adiós
+- Morning = Mañana
+- Evening = Noche
+- Welcome = Bienvenido
+- Friend = Amigo
+- How are you? = ¿Cómo estás?
+
+Phrases:
+- Good morning = Buenos días
+- Good night = Buenas noches
+- Nice to meet you = Encantado de conocerte
+- Have a nice day = Que tengas un buen día
+
+Examples:
+- Hola, ¿cómo estás? (Hello, how are you?)
+- Encantado de conocerte. (Nice to meet you.)
