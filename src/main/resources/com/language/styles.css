@@ -118,3 +118,23 @@ Button {
   -fx-max-height: 50px;
   -fx-text-fill: white;
 }
+
+.question-prompt-text {
+  -fx-font-size: 32px;
+  -fx-text-fill: white;
+}
+
+.highlight {
+  -fx-background-color: rgba(255, 255, 255, 0.6);
+  -fx-border-color: #ffffff;
+}
+
+.highlight-correct {
+  -fx-background-color: #62b83d;
+  -fx-border-color: #ffffff;
+}
+
+.highlight-incorrect {
+  -fx-background-color: #ff3b43;
+  -fx-border-color: #ffffff;
+}

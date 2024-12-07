@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <!-- <?import org.kordamp.ikonli.javafx.FontIcon?> -->
 
@@ -18,22 +21,23 @@
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="181.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="36.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="0.0" prefWidth="109.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="744.4133911132812" minWidth="10.0" prefWidth="36.5" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="958.4447021484375" minWidth="10.0" prefWidth="657.5" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.0" minWidth="0.0" prefWidth="175.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="744.4133911132812" minWidth="10.0" prefWidth="37.5" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="958.4447021484375" minWidth="10.0" prefWidth="584.5" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="958.4447021484375" minWidth="10.0" prefWidth="37.5" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="958.4447021484375" minWidth="10.0" prefWidth="390.5" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="337.4473876953125" minHeight="0.0" prefHeight="121.48551940917969" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="337.4473876953125" minHeight="10.0" prefHeight="46.5" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="337.4473876953125" minHeight="0.0" prefHeight="150.5" vgrow="ALWAYS" />
           <RowConstraints maxHeight="912.9797959327698" minHeight="10.0" prefHeight="271.621337890625" vgrow="ALWAYS" />
             <RowConstraints maxHeight="788.6268157958984" minHeight="5.095123291015625" prefHeight="69.7623291015625" vgrow="ALWAYS" />
           <RowConstraints maxHeight="788.6268157958984" minHeight="10.0" prefHeight="418.534423828125" vgrow="ALWAYS" />
             <RowConstraints maxHeight="248.1104736328125" minHeight="0.0" prefHeight="154.465576171875" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <VBox fx:id="answerBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+            <VBox fx:id="answerBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
                <children>
                   <VBox alignment="CENTER_LEFT" prefHeight="153.0" prefWidth="340.0">
                      <children>
@@ -42,13 +46,32 @@
                   </VBox>
                   <VBox alignment="CENTER_RIGHT" prefHeight="153.0" prefWidth="335.0">
                      <children>
-                        <Button fx:id="skipButton" alignment="CENTER" mnemonicParsing="false" styleClass="question-button" text="Skip" />
+                        <Button fx:id="skipButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleSkipButton" styleClass="question-button" text="Skip" />
                      </children>
                   </VBox>
                </children>
             </HBox>
-            <Pane fx:id="promptBox" prefHeight="200.0" prefWidth="200.0" styleClass="card" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <Pane fx:id="score" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
+            <VBox fx:id="scoreBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="card" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <Label fx:id="scoreLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="44.0" prefWidth="102.0" text="0/10" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Black" size="36.0" />
+                     </font>
+                  </Label>
+               </children></VBox>
+            <VBox fx:id="promptBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+               <styleClass>
+                  <String fx:value="card" />
+                  <String fx:value="question-prompt-text" />
+               </styleClass>
+               <children>
+                  <Text fx:id="promptText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Prompt">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
          </children>
       </GridPane>
    </children>

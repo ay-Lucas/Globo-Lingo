@@ -14,8 +14,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public class QuestionController implements Initializable {
 
@@ -25,29 +25,43 @@ public class QuestionController implements Initializable {
     private VBox answerBox; // VBox from the FXML with fx:id="answerBox"
 
     @FXML
-    private Pane promptBox; // Pane from the FXML with fx:id="promptBox"
-
+    private Text promptText;
     @FXML
-    private Pane score; // Pane from the FXML with fx:id="score"
-
+    private Label scoreLabel;
     @FXML
-    public void handleCheckButton() {
-        // Handle the action of the "Check" button (Placeholder for now)
-        System.out.println("Check button clicked");
-    }
-
-    @FXML
-    static void handleSkipButton() {
-        // Handle the action of the "Skip" button (Placeholder for now)
-        System.out.println("Skip button clicked");
-    }
+    private Button skipButton;
 
     private SystemFACADE sf = SystemFACADE.getInstance();
+    private int currentScore = 0;
+    private Button selectedButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setAnswerButtons();
-        System.out.println(sf.getCurrentQuestion().getAnswer());
+        setPrompt();
+    }
+
+    public void handleCheckButton() {
+        System.out.println("Check button clicked");
+        if (sf.getCurrentQuestion().getAnswer().equals(selectedButton.getText())) {
+            selectedButton.getStyleClass().add("highlight-correct");
+            currentScore++;
+            updateScore();
+            skipButton.setText("Continue");
+            skipButton.getStyleClass().add("highlight");
+        } else {
+            selectedButton.getStyleClass().add("highlight-incorrect");
+        }
+    }
+
+    public void handleSkipButton() {
+        System.out.println("Skip button clicked");
+        // if (sf.getCurrentQuestion().getAnswer().equals(selectedButton.getText())) {
+        sf.startNextQuestion();
+        setAnswerButtons();
+        setPrompt();
+        // }
+
     }
 
     public void setAnswerButtons() {
@@ -66,9 +80,9 @@ public class QuestionController implements Initializable {
         answerBox.getChildren().clear();
 
         // Add the correct answer button
-        // Button answerButton = new Button(currentQuestion.getAnswer());
-        // answerButton.getStyleClass().add("question-answer-button");
-        // questionButtons.add(answerButton);
+        Button answerButton = new Button(currentQuestion.getAnswer());
+        answerButton.getStyleClass().add("question-answer-button");
+        questionButtons.add(answerButton);
         // Add buttons for wrong answers
         if (currentQuestion.getWrongAnswers() != null) {
             for (String wrongAnswer : currentQuestion.getWrongAnswers()) {
@@ -77,10 +91,13 @@ public class QuestionController implements Initializable {
                 questionButtons.add(wrongAnswerButton);
             }
         }
-        questionButtons.forEach(e -> e.setOnAction(event -> {
-            if (e.getText().equals(sf.getCurrentQuestion().getAnswer())) {
+        questionButtons.forEach(button -> button.setOnAction(event -> {
+            questionButtons.forEach(b -> b.getStyleClass().remove("highlight"));
+            if (button.getText().equals(sf.getCurrentQuestion().getAnswer())) {
                 System.out.println("Correct!");
             }
+            button.getStyleClass().add("highlight");
+            this.selectedButton = button;
         }));
         Collections.shuffle(questionButtons);
         answerBox.getChildren().addAll(questionButtons);
@@ -91,22 +108,19 @@ public class QuestionController implements Initializable {
         int maxScore = sf.getCurrentLesson().getMaxScore();
 
         // Clear the score Pane and add a new label with the formatted score
-        score.getChildren().clear();
-        Label scoreLabel = new Label(scoreValue + " / " + maxScore);
-        score.getChildren().add(scoreLabel);
+        scoreLabel.setText((scoreValue + 1) + " / " + maxScore);
+        sf.getCurrentLesson().setUserScore(currentScore);
     }
 
-    // public void setPrompt() {
-    // Question currentQuestion = sf.getCurrentQuestion();
-    // if (currentQuestion == null)
-    // return;
-    //
-    // String prompt = currentQuestion.getPrompt();
-    //
-    // // Clear the promptBox and add a new label with the prompt
-    // promptBox.getChildren().clear();
-    // Label promptLabel = new Label(prompt);
-    // promptBox.getChildren().add(promptLabel);
-    // }
+    public void setPrompt() {
+        Question currentQuestion = sf.getCurrentQuestion();
+        if (currentQuestion == null)
+            return;
+
+        String prompt = currentQuestion.getPrompt();
+        System.out.println("prompt: " + prompt + "\n");
+
+        promptText.setText(prompt);
+    }
 
 }

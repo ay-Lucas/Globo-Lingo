@@ -16,6 +16,7 @@ public class MultipleChoice implements Question {
     private Phrase phrase;
     private String answer;
     private boolean correct = false;
+    private String prompt;
 
     /**
      * Constructor
@@ -29,7 +30,7 @@ public class MultipleChoice implements Question {
         this.word = word;
         this.phrase = null;
         this.answer = word.getTranslation();
-
+        setPrompt();
     }
 
     public MultipleChoice(ArrayList<String> options, Phrase phrase) {
@@ -37,7 +38,7 @@ public class MultipleChoice implements Question {
         this.phrase = phrase;
         this.word = null;
         this.answer = phrase.getTranslationString();
-
+        setPrompt();
     }
 
     // Getters not present in UML
@@ -119,6 +120,19 @@ public class MultipleChoice implements Question {
         this.answer = answer;
     }
 
+    public void setPrompt() {
+        String prompt;
+        if (word != null) {
+            prompt = "How do you say " + word.getEnglishWord() + " in " +
+                    word.getLanguage() + "?";
+        } else {
+            prompt = "How do you say " + phrase.getEnglishPhrase() + " in " +
+                    phrase.getLanguage() + "?";
+        }
+        this.prompt = prompt;
+
+    }
+
     @Override
     public String toString() {
         if (word != null) {
@@ -134,9 +148,8 @@ public class MultipleChoice implements Question {
         }
     }
 
-    @Override
     public String getPrompt() {
-        return this.getPrompt();
+        return this.prompt;
     }
 
     @Override
