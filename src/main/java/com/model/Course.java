@@ -43,7 +43,7 @@ public class Course {
         this.lessons = new ArrayList<>();
         generateLessons();
         this.currentLesson = lessons.get(currentLessonNum);
-        this.nextLesson = lessons.get(currentLessonNum+1);
+        this.nextLesson = lessons.get(currentLessonNum + 1);
         this.language = language;
         this.user = user;
     }
@@ -57,14 +57,14 @@ public class Course {
     public Lesson getCurrentLesson() {
         return currentLesson;
     }
-    
+
     /**
      * This is pretty much entirely for the purpose of displaying the next lesson
      * on the results page.
      * 
      * @return the lesson object representing the next lesson to be done
      */
-    public Lesson getNextLesson()  {
+    public Lesson getNextLesson() {
         return nextLesson;
     }
 
@@ -81,8 +81,17 @@ public class Course {
      * Generates and adds lessons to the course, up to the maximum limit.
      */
     public void generateLessons() {
-        for (int i = 1; i <= MAX_LESSONS; i++) {
-            this.lessons.add(new Lesson(i));
+        ArrayList<String> lessonsContent = new ArrayList<>();
+        try {
+            lessonsContent = DataLoader.loadLessonContent();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (lessonsContent == null || lessonsContent.size() != MAX_LESSONS)
+            throw new Error("lessonsContent length not equal to lessons length OR lessonsContent is null");
+
+        for (int i = 0; i < MAX_LESSONS; i++) {
+            this.lessons.add(new Lesson(i + 1, lessonsContent.get(i)));
             System.out.println("Loaded Lesson " + i);
         }
     }

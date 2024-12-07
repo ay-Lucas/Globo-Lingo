@@ -19,6 +19,7 @@ public class Lesson {
     private int difficulty;
     private Scanner k = new Scanner(System.in);
     private int lessonNumber;
+    private String content;
 
     /**
      * Constructs a new Lesson with the specified lesson number, initializing the
@@ -26,7 +27,7 @@ public class Lesson {
      * 
      * @param lessonNumber the number of the lesson to initialize
      */
-    public Lesson(int lessonNumber) {
+    public Lesson(int lessonNumber, String content) {
         this.userScore = 0;
         this.maxScore = 10;
         this.isComplete = false;
@@ -34,6 +35,7 @@ public class Lesson {
         this.generateQuestions(lessonNumber);
         this.setName(lessonNumber);
         this.lessonNumber = lessonNumber;
+        this.content = content;
     }
 
     /**
@@ -307,6 +309,10 @@ public class Lesson {
      */
     public void setDifficulty(int difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public String getContent() {
+        return this.content;
     }
 
     /**
