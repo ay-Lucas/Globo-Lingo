@@ -69,6 +69,28 @@ public class SystemFACADE {
         }
     }
 
+    public void initializeCourse() {
+        if (currentUser == null)
+            return;
+        Course course;
+        if (!currentUser.getCourseList().isEmpty())
+            course = currentUser.getCourseList().get(0);
+        else
+            course = new Course(Language.SPANISH, currentUser);
+        course.generateLessons();
+        this.currentCourse = course;
+        userList.saveUser(currentUser);
+    }
+
+    public void setLesson(int lessonIndex) {
+        if (currentUser == null)
+            return;
+        Lesson lesson = currentCourse.getLessons().get(lessonIndex);
+        this.currentLesson = lesson;
+        this.currentCourse.setCurrentLesson(lesson);
+        userList.saveUser(currentUser);
+    }
+
     public void continueLearning() {
         if (currentUser != null && this.currentCourse != null) {
             incrementUserLevel();
