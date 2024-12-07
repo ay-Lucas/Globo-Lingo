@@ -20,6 +20,8 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 
 import com.language.App;
+import com.model.Language;
+import com.model.SystemFACADE;
 
 public class HomeController extends NavbarController implements Initializable {
     private final List<String> LESSON_NAMES = List.of(
@@ -38,26 +40,31 @@ public class HomeController extends NavbarController implements Initializable {
     private Pane progressCircleSection;
     private final static int MAX_LEVEL = 10;
 
+    private SystemFACADE sf = SystemFACADE.getInstance();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String userAvatarPath = App.getSystemFacade().getCurrentUser().getAvatar().getPath();
+        sf.initializeCourse();
+        String userAvatarPath = sf.getCurrentUser().getAvatar().getPath();
         Image newImage = new Image(userAvatarPath);
         homeAvatarImage.setImage(newImage);
-        lessonsCompletedLabel.setText(App.getSystemFacade().getUserCourses().get(0).getCompletedLessons() + "/"
-                + App.getSystemFacade().getUserCourses().get(0).getLessons().size());
+        lessonsCompletedLabel.setText(sf.getUserCourses().get(0).getCompletedLessons() + "/"
+                + sf.getUserCourses().get(0).getLessons().size());
         setLessonButtons();
-        setProgressCircle(App.getSystemFacade().getCurrentUser().getLevel(), MAX_LEVEL); // Example: Level 2 of 10 (20%
-                                                                                         // progress)
+        setProgressCircle(sf.getCurrentUser().getLevel(), MAX_LEVEL); // Example: Level 2 of 10 (20%
+        // progress)
 
     }
 
     public void setLessonButtons() {
-        int completedLessons = App.getSystemFacade().getUserCourses().get(0).getCompletedLessons();
+        int completedLessons = sf.getUserCourses().get(0).getCompletedLessons();
         for (int i = 0; i < LESSON_NAMES.size(); i++) {
             Button button = new Button(i + 1 + ". " + LESSON_NAMES.get(i));
             if (i < completedLessons + 1) { // Add 1 to enable next lesson
+                button.setId(String.valueOf(i));
                 button.getStyleClass().add("lesson-button-enabled");
                 button.setOnAction(event -> {
+                    sf.setLesson(Integer.parseInt(button.getId()));
                     try {
                         App.setRoot("lesson");
                     } catch (IOException e) {
