@@ -49,7 +49,8 @@ public class HomeController extends NavbarController implements Initializable {
         Image newImage = new Image(userAvatarPath);
         homeAvatarImage.setImage(newImage);
         lessonsCompletedLabel.setText(sf.getUserCourses().get(0).getCompletedLessons() + "/"
-                + sf.getUserCourses().get(0).getLessons().size());
+                + LESSON_NAMES.size());
+        // + sf.getUserCourses().get(0).getLessons().size());
         setLessonButtons();
         setProgressCircle(sf.getCurrentUser().getLevel(), MAX_LEVEL); // Example: Level 2 of 10 (20%
         // progress)
