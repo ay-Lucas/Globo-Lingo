@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class QuestionController implements Initializable {
@@ -37,68 +38,76 @@ public class QuestionController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setAnswerButtons();
-        setPrompt();
+        // Initialize with the first question
+        handleSkipButton();
     }
 
     public void handleCheckButton() {
         System.out.println("Check button clicked");
 
-        if (sf.getCurrentQuestion() instanceof NarratedQ) {
-            // Handle narrated question input
-            TextField textField = (TextField) answerBox.getChildren().get(0);
-            String userInput = textField.getText();
+        Question currentQuestion = sf.getCurrentQuestion();
+        if (currentQuestion == null) {
+            System.err.println("No current question to check.");
+            return;
+        }
 
-            if (((NarratedQ) sf.getCurrentQuestion()).getAnswer().equalsIgnoreCase(userInput)) {
-                System.out.println("Correct!");
-                currentScore++;
-                updateScore();
+        if (currentQuestion instanceof NarratedQ) {
+            // Handle narrated question input
+            if (!answerBox.getChildren().isEmpty() && answerBox.getChildren().get(1) instanceof TextField) {
+                TextField textField = (TextField) answerBox.getChildren().get(1); // Second child is the TextField
+                String userInput = textField.getText();
+
+                if (((NarratedQ) currentQuestion).getAnswer().equalsIgnoreCase(userInput)) {
+                    System.out.println("Correct!");
+                    currentScore++;
+                    updateScore();
+                } else {
+                    System.out.println("Incorrect!");
+                }
             } else {
-                System.out.println("Incorrect!");
+                System.err.println("Error: Expected a TextField in the answerBox.");
             }
         } else {
             // Handle multiple-choice question
-            if (sf.getCurrentQuestion().getAnswer().equals(selectedButton.getText())) {
+            if (selectedButton != null && currentQuestion.getAnswer().equals(selectedButton.getText())) {
                 selectedButton.getStyleClass().add("highlight-correct");
                 currentScore++;
                 updateScore();
                 skipButton.setText("Continue");
                 skipButton.getStyleClass().add("highlight");
-            } else {
+            } else if (selectedButton != null) {
                 selectedButton.getStyleClass().add("highlight-incorrect");
+            } else {
+                System.err.println("Error: No button selected.");
             }
         }
     }
 
     public void handleSkipButton() {
         System.out.println("Skip button clicked");
-        Question question = sf.startNextQuestion();
 
-        if (question == null) {
+        Question nextQuestion = sf.startNextQuestion();
+        if (nextQuestion == null) {
             System.out.println("No more questions.");
             return;
         }
 
-        if (question instanceof NarratedQ) {
+        if (nextQuestion instanceof NarratedQ) {
             setNarratedQuestion();
-
         } else {
             setAnswerButtons();
             setPrompt();
         }
-
     }
 
     public void setNarratedQuestion() {
         // Clear previous answerBox content
         answerBox.getChildren().clear();
 
-        // Create and add a TextField for user input
-        TextField textField = new TextField();
-        textField.setPromptText("Enter what you hear here");
-
         // Create and add a button to play the narrated sound
         Button playSoundButton = new Button("Play Sound");
+        playSoundButton.getStyleClass().add("question-answer-button");
+        playSoundButton.setStyle("-fx-text-fill: white;");
         playSoundButton.setOnAction(event -> {
             NarratedQ narratedQuestion = (NarratedQ) sf.getCurrentQuestion();
             if (narratedQuestion != null) {
@@ -106,7 +115,11 @@ public class QuestionController implements Initializable {
             }
         });
 
-        // Add TextField and button to the VBox
+        // Create and add a TextField for user input
+        TextField textField = new TextField();
+        textField.setPromptText("Enter what you hear here");
+
+        // Add components to the answerBox
         answerBox.getChildren().addAll(playSoundButton, textField);
     }
 
@@ -116,46 +129,40 @@ public class QuestionController implements Initializable {
             return;
 
         // Initialize the list of all answers
-        ArrayList<String> questions = new ArrayList<>();
-        questions.add(currentQuestion.getAnswer());
+        ArrayList<String> answers = new ArrayList<>();
+        answers.add(currentQuestion.getAnswer());
 
-        // Safely handle the case where getWrongAnswers() is null
+        // Add wrong answers if available
         if (currentQuestion.getWrongAnswers() != null) {
-            for (String wrongAnswer : currentQuestion.getWrongAnswers()) {
-                questions.add(wrongAnswer);
-            }
+            answers.addAll(currentQuestion.getWrongAnswers());
         }
 
-        // Create buttons
-        ArrayList<Button> questionButtons = new ArrayList<>();
-
-        // Clear the answerBox in case it already has buttons
+        // Clear the answerBox and create buttons
         answerBox.getChildren().clear();
+        ArrayList<Button> answerButtons = new ArrayList<>();
 
-        for (String answer : questions) {
+        for (String answer : answers) {
             Button button = new Button(answer);
             button.getStyleClass().add("question-answer-button");
-            questionButtons.add(button);
-
-            // Set the button action
             button.setOnAction(event -> {
-                questionButtons.forEach(b -> b.getStyleClass().remove("highlight"));
+                answerButtons.forEach(b -> b.getStyleClass().remove("highlight"));
                 button.getStyleClass().add("highlight");
-                this.selectedButton = button;
+                selectedButton = button;
             });
+            answerButtons.add(button);
         }
 
-        // Shuffle the buttons and add them to the answerBox
-        Collections.shuffle(questionButtons);
-        answerBox.getChildren().addAll(questionButtons);
+        // Shuffle buttons and add to the answerBox
+        Collections.shuffle(answerButtons);
+        answerBox.getChildren().addAll(answerButtons);
     }
 
     public void updateScore() {
-        int scoreValue = sf.getCurrentLesson().getUserScore();
         int maxScore = sf.getCurrentLesson().getMaxScore();
-
         scoreLabel.setText(currentScore + " / " + maxScore);
         sf.getCurrentLesson().setUserScore(currentScore);
+        if (this.currentScore > 2)
+            sf.incrementUserLevel();
     }
 
     public void setPrompt() {
@@ -163,9 +170,6 @@ public class QuestionController implements Initializable {
         if (currentQuestion == null)
             return;
 
-        String prompt = currentQuestion.getPrompt();
-        System.out.println("prompt: " + prompt + "\n");
-
-        promptText.setText(prompt);
+        promptText.setText(currentQuestion.getPrompt());
     }
 }
