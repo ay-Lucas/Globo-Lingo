@@ -97,8 +97,8 @@ Button {
   -fx-border-radius: 20px;
   -fx-border-style: solid;
   -fx-background-radius: 20px;
-  -fx-max-width: 200px;
-  -fx-min-width: 200px;
+  -fx-max-width: 500px;
+  -fx-min-width: 500px;
   -fx-text-fill: white;
 }
 
