@@ -20,6 +20,8 @@ public class Lesson {
     private Scanner k = new Scanner(System.in);
     private int lessonNumber;
     private String content;
+    private Question currentQuestion;
+    private int currentQuestionIndex;
 
     /**
      * Constructs a new Lesson with the specified lesson number, initializing the
@@ -33,6 +35,8 @@ public class Lesson {
         this.isComplete = false;
         this.passed = false;
         this.generateQuestions(lessonNumber);
+        this.currentQuestion = questions.get(0);
+        this.currentQuestionIndex = 0;
         this.setName(lessonNumber);
         this.lessonNumber = lessonNumber;
         this.content = content;
@@ -337,6 +341,19 @@ public class Lesson {
         }
         this.passed = (userScore >= 7);
         System.out.println("SCORE: " + userScore + " out of " + maxScore);
+    }
+
+    public Question nextQuestion() {
+        if (questions == null || currentQuestionIndex >= questions.size())
+            return null;
+        Question currentQuestion = questions.get(currentQuestionIndex);
+        currentQuestionIndex++;
+        return currentQuestion;
+    }
+
+    public void resetQuestions() {
+        this.currentQuestion = questions.get(0);
+        currentQuestionIndex = 0;
     }
 
 }
