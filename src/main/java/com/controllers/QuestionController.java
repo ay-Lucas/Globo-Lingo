@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.ResourceBundle;
 
 import com.language.App;
+import com.model.NarratedQ;
 import com.model.Question;
 import com.model.SystemFACADE;
 
@@ -14,15 +15,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 public class QuestionController implements Initializable {
 
-    // Needs the initalize method
-
     @FXML
-    private VBox answerBox; // VBox from the FXML with fx:id="answerBox"
+    private VBox answerBox;
 
     @FXML
     private Text promptText;
@@ -43,25 +43,71 @@ public class QuestionController implements Initializable {
 
     public void handleCheckButton() {
         System.out.println("Check button clicked");
-        if (sf.getCurrentQuestion().getAnswer().equals(selectedButton.getText())) {
-            selectedButton.getStyleClass().add("highlight-correct");
-            currentScore++;
-            updateScore();
-            skipButton.setText("Continue");
-            skipButton.getStyleClass().add("highlight");
+
+        if (sf.getCurrentQuestion() instanceof NarratedQ) {
+            // Handle narrated question input
+            TextField textField = (TextField) answerBox.getChildren().get(0);
+            String userInput = textField.getText();
+
+            if (((NarratedQ) sf.getCurrentQuestion()).getAnswer().equalsIgnoreCase(userInput)) {
+                System.out.println("Correct!");
+                currentScore++;
+                updateScore();
+            } else {
+                System.out.println("Incorrect!");
+            }
         } else {
-            selectedButton.getStyleClass().add("highlight-incorrect");
+            // Handle multiple-choice question
+            if (sf.getCurrentQuestion().getAnswer().equals(selectedButton.getText())) {
+                selectedButton.getStyleClass().add("highlight-correct");
+                currentScore++;
+                updateScore();
+                skipButton.setText("Continue");
+                skipButton.getStyleClass().add("highlight");
+            } else {
+                selectedButton.getStyleClass().add("highlight-incorrect");
+            }
         }
     }
 
     public void handleSkipButton() {
         System.out.println("Skip button clicked");
-        // if (sf.getCurrentQuestion().getAnswer().equals(selectedButton.getText())) {
-        sf.startNextQuestion();
-        setAnswerButtons();
-        setPrompt();
-        // }
+        Question question = sf.startNextQuestion();
 
+        if (question == null) {
+            System.out.println("No more questions.");
+            return;
+        }
+
+        if (question instanceof NarratedQ) {
+            setNarratedQuestion();
+
+        } else {
+            setAnswerButtons();
+            setPrompt();
+        }
+
+    }
+
+    public void setNarratedQuestion() {
+        // Clear previous answerBox content
+        answerBox.getChildren().clear();
+
+        // Create and add a TextField for user input
+        TextField textField = new TextField();
+        textField.setPromptText("Enter what you hear here");
+
+        // Create and add a button to play the narrated sound
+        Button playSoundButton = new Button("Play Sound");
+        playSoundButton.setOnAction(event -> {
+            NarratedQ narratedQuestion = (NarratedQ) sf.getCurrentQuestion();
+            if (narratedQuestion != null) {
+                narratedQuestion.playSound();
+            }
+        });
+
+        // Add TextField and button to the VBox
+        answerBox.getChildren().addAll(playSoundButton, textField);
     }
 
     public void setAnswerButtons() {
@@ -69,36 +115,37 @@ public class QuestionController implements Initializable {
         if (currentQuestion == null)
             return;
 
+        // Initialize the list of all answers
         ArrayList<String> questions = new ArrayList<>();
-        questions.add(sf.getCurrentQuestion().getAnswer());
-        for (String wrongAnswer : currentQuestion.getWrongAnswers()) {
-            questions.add(wrongAnswer);
+        questions.add(currentQuestion.getAnswer());
+
+        // Safely handle the case where getWrongAnswers() is null
+        if (currentQuestion.getWrongAnswers() != null) {
+            for (String wrongAnswer : currentQuestion.getWrongAnswers()) {
+                questions.add(wrongAnswer);
+            }
         }
+
+        // Create buttons
         ArrayList<Button> questionButtons = new ArrayList<>();
 
         // Clear the answerBox in case it already has buttons
         answerBox.getChildren().clear();
 
-        // Add the correct answer button
-        Button answerButton = new Button(currentQuestion.getAnswer());
-        answerButton.getStyleClass().add("question-answer-button");
-        questionButtons.add(answerButton);
-        // Add buttons for wrong answers
-        if (currentQuestion.getWrongAnswers() != null) {
-            for (String wrongAnswer : currentQuestion.getWrongAnswers()) {
-                Button wrongAnswerButton = new Button(wrongAnswer);
-                wrongAnswerButton.getStyleClass().add("question-answer-button");
-                questionButtons.add(wrongAnswerButton);
-            }
+        for (String answer : questions) {
+            Button button = new Button(answer);
+            button.getStyleClass().add("question-answer-button");
+            questionButtons.add(button);
+
+            // Set the button action
+            button.setOnAction(event -> {
+                questionButtons.forEach(b -> b.getStyleClass().remove("highlight"));
+                button.getStyleClass().add("highlight");
+                this.selectedButton = button;
+            });
         }
-        questionButtons.forEach(button -> button.setOnAction(event -> {
-            questionButtons.forEach(b -> b.getStyleClass().remove("highlight"));
-            if (button.getText().equals(sf.getCurrentQuestion().getAnswer())) {
-                System.out.println("Correct!");
-            }
-            button.getStyleClass().add("highlight");
-            this.selectedButton = button;
-        }));
+
+        // Shuffle the buttons and add them to the answerBox
         Collections.shuffle(questionButtons);
         answerBox.getChildren().addAll(questionButtons);
     }
@@ -107,8 +154,7 @@ public class QuestionController implements Initializable {
         int scoreValue = sf.getCurrentLesson().getUserScore();
         int maxScore = sf.getCurrentLesson().getMaxScore();
 
-        // Clear the score Pane and add a new label with the formatted score
-        scoreLabel.setText((scoreValue + 1) + " / " + maxScore);
+        scoreLabel.setText(currentScore + " / " + maxScore);
         sf.getCurrentLesson().setUserScore(currentScore);
     }
 
@@ -122,5 +168,4 @@ public class QuestionController implements Initializable {
 
         promptText.setText(prompt);
     }
-
 }
