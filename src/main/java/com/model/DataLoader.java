@@ -1,6 +1,9 @@
 package com.model;
 
 import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.UUID;
@@ -132,6 +135,21 @@ public class DataLoader extends DataConstants {
         else
             return phraseList;
 
+    }
+
+    public static ArrayList<String> loadLessonContent() throws Exception {
+        Path lessonsFolder = Paths.get("src/main/resources/lessons/");
+        ArrayList<String> lessonsContent = new ArrayList<>();
+        Files.list(lessonsFolder).forEach(file -> {
+            try {
+                String content = Files.readString(file);
+                lessonsContent.add(content);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        return lessonsContent;
     }
 
 }
