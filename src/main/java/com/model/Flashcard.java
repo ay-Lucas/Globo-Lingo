@@ -1,35 +1,41 @@
 package com.model;
 
+import java.util.ArrayList;
+
 /**
  * @author Alexander Hughes
- * This class implements Flashcard question type, user is presented
- * a foreign prompt and has to input the answer in english, typed response.
+ *         This class implements Flashcard question type, user is presented
+ *         a foreign prompt and has to input the answer in english, typed
+ *         response.
  */
-public class Flashcard implements Question  {
+public class Flashcard implements Question {
     private String prompt;
     private String answer;
     private boolean correct = false;
-    
-        //UML has C in flashcard capitalized, may need to be updated.
-    public Flashcard(Word word)  {
+
+    // UML has C in flashcard capitalized, may need to be updated.
+    public Flashcard(Word word) {
         this.answer = word.getEnglishWord();
         this.prompt = word.getTranslation();
     }
 
-    public Flashcard(Phrase phrase)  {
+    public Flashcard(Phrase phrase) {
         this.answer = phrase.getEnglishPhrase();
         this.prompt = phrase.getTranslationString();
     }
 
-        // Getter not present in UML
+    // Getter not present in UML
     /**
      * 
      * @return the Word prompt
      */
-    public String getPrompt() { return this.prompt; }
+    public String getPrompt() {
+        return this.prompt;
+    }
 
     /**
-     * @return the boolean value of if this question was answered correctly, default false
+     * @return the boolean value of if this question was answered correctly, default
+     *         false
      */
     @Override
     public boolean isCorrect() {
@@ -38,6 +44,7 @@ public class Flashcard implements Question  {
 
     /**
      * compares input to english prompt, sets correct boolean.
+     * 
      * @param input ENGLISH word as input
      */
     @Override
@@ -50,9 +57,11 @@ public class Flashcard implements Question  {
      * @return The answer to this flashcard
      */
     @Override
-    public String getAnswer() { return this.answer; }
-    
-        // Setter not present in UML
+    public String getAnswer() {
+        return this.answer;
+    }
+
+    // Setter not present in UML
     /**
      * 
      * @param prompt String value of the prompt of this flashcard
@@ -60,20 +69,20 @@ public class Flashcard implements Question  {
     public void setPrompt(String prompt) {
         this.prompt = prompt;
     }
-    
+
     /**
      * @param answer String value of the answer
      */
-    public void setAnswer(String answer)  {
+    public void setAnswer(String answer) {
         this.answer = answer;
     }
 
     @Override
-    public String toString()  {
+    public String toString() {
         return "What does \"" + this.prompt + "\" mean in English?";
     }
 
-    public String[] getWrongAnswers() {
+    public ArrayList<String> getWrongAnswers() {
         return null;
     }
 

@@ -1,8 +1,10 @@
 package com.controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.language.App;
 import com.model.Question;
 import com.model.SystemFACADE;
 
@@ -26,6 +28,15 @@ public class LessonController implements Initializable {
         int lessonNum = sf.getCurrentLesson().getLessonNumber();
         lessonLabel.setText("Lesson " + lessonNum + ": " + sf.getCurrentLesson().getName());
         lessonContent.setText(sf.getCurrentLesson().getContent());
+        questionButton.setOnAction(event -> {
+            sf.startNextQuestion();
+            try {
+                App.setRoot("question");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        });
     }
 
 }

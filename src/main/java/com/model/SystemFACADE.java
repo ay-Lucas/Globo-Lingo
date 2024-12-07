@@ -91,6 +91,11 @@ public class SystemFACADE {
         userList.saveUser(currentUser);
     }
 
+    public Question startNextQuestion() {
+        this.currentQuestion = currentLesson.nextQuestion();
+        return this.currentQuestion;
+    }
+
     public void continueLearning() {
         if (currentUser != null && this.currentCourse != null) {
             incrementUserLevel();

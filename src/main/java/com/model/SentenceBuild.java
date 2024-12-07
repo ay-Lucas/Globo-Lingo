@@ -1,32 +1,37 @@
 package com.model;
 
+import java.util.ArrayList;
 
 /**
  * @author Alexander Hughes
- * This is the class for the Sentence Building question type
+ *         This is the class for the Sentence Building question type
  */
 public class SentenceBuild implements Question {
-    
+
     private Phrase sentence;
     private boolean correct = false;
 
     /**
      * Constructor
+     * 
      * @param sentence the Phrase of the sentence to be built
      */
-    public SentenceBuild(Phrase sentence)  {
+    public SentenceBuild(Phrase sentence) {
         this.sentence = sentence;
     }
 
-        // Getter not in UML
+    // Getter not in UML
     /**
      * @return The sentence to be built
      */
-    public Phrase getSentence() { return this.sentence; }
-     
+    public Phrase getSentence() {
+        return this.sentence;
+    }
+
     @Override
-    public String getAnswer()  {
-        // Based on how this would function, we know that the sentence is the answer, so just going to cap this;
+    public String getAnswer() {
+        // Based on how this would function, we know that the sentence is the answer, so
+        // just going to cap this;
         return this.sentence.getTranslationString();
     }
 
@@ -39,7 +44,6 @@ public class SentenceBuild implements Question {
         return this.correct;
     }
 
-    
     @Override
     public void getUserInput(String input) {
         this.correct = input.equalsIgnoreCase(sentence.getTranslationString());
@@ -47,17 +51,18 @@ public class SentenceBuild implements Question {
 
     /**
      * Sets the input phrase to the sentence
+     * 
      * @param phrase The phrase to be built
      */
-        // No setters in UML
-    public void setSentence(Phrase phrase)  {
+    // No setters in UML
+    public void setSentence(Phrase phrase) {
         this.sentence = phrase;
     }
 
     @Override
     public String toString() {
-        return "Translate the words to match the phrase: \"" + 
-        sentence.getEnglishPhrase() + "\"";
+        return "Translate the words to match the phrase: \"" +
+                sentence.getEnglishPhrase() + "\"";
     }
 
     @Override
@@ -66,7 +71,7 @@ public class SentenceBuild implements Question {
     }
 
     @Override
-    public String[] getWrongAnswers() {
+    public ArrayList<String> getWrongAnswers() {
         return null;
     }
 }

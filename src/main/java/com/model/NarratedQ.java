@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.ArrayList;
+
 import com.narration.Narriator;
 
 /**
@@ -76,7 +78,7 @@ public class NarratedQ implements Question {
     }
 
     @Override
-    public String[] getWrongAnswers() {
+    public ArrayList<String> getWrongAnswers() {
         return null;
     }
 }
