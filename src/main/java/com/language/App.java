@@ -18,11 +18,11 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     private static Scene scene;
-    private static SystemFACADE systemFACADE = new SystemFACADE();
+    private SystemFACADE sf = SystemFACADE.getInstance();
 
     @Override
     public void start(Stage stage) throws IOException {
-        App.getSystemFacade().login("robbieWhite", "rWhite123");
+        sf.login("robbieWhite", "rWhite123");
         scene = new Scene(loadFXML("home"), 1440, 1024);
         scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
         stage.setScene(scene);
@@ -44,10 +44,6 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch();
-    }
-
-    public static SystemFACADE getSystemFacade() {
-        return systemFACADE;
     }
 
 }
