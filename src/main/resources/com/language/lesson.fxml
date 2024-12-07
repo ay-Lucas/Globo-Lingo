@@ -29,16 +29,11 @@
             <RowConstraints maxHeight="248.1104736328125" minHeight="0.0" prefHeight="127.6141357421875" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <VBox fx:id="lessonSection" alignment="TOP_CENTER" prefHeight="336.0" prefWidth="729.0" styleClass="card" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <VBox fx:id="lessonSection" alignment="CENTER" prefHeight="336.0" prefWidth="729.0" styleClass="card" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
                <children>
-                  <Label text="Lesson" textFill="WHITE">
+                  <Text fx:id="lessonContent" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Content" wrappingWidth="734.7057189941406">
                      <font>
-                        <Font name="Roboto Medium" size="48.0" />
-                     </font>
-                  </Label>
-                  <Text fx:id="lessonContent" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Content" wrappingWidth="773.9210205078125">
-                     <font>
-                        <Font size="29.0" />
+                        <Font size="31.0" />
                      </font>
                   </Text>
                </children>
@@ -48,20 +43,6 @@
                   <Font name="Roboto Medium" size="48.0" />
                </font>
             </Label>
-            <VBox fx:id="lessonSection1" alignment="TOP_CENTER" prefHeight="336.0" prefWidth="729.0" styleClass="card" GridPane.columnIndex="2" GridPane.rowIndex="2">
-               <children>
-                  <Label text="Notes" textFill="WHITE">
-                     <font>
-                        <Font name="Roboto Medium" size="48.0" />
-                     </font>
-                  </Label>
-                  <Text fx:id="notesContent" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Content" wrappingWidth="773.9210205078125">
-                     <font>
-                        <Font size="29.0" />
-                     </font>
-                  </Text>
-               </children>
-            </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <children>
                   <Button fx:id="questionButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="168.0" text="Questions" textAlignment="CENTER" textFill="WHITE">

@@ -16,8 +16,6 @@ public class LessonController implements Initializable {
     @FXML
     Text lessonContent;
     @FXML
-    Text notesContent;
-    @FXML
     Label lessonLabel;
     @FXML
     Button questionButton;
@@ -27,6 +25,7 @@ public class LessonController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         int lessonNum = sf.getCurrentLesson().getLessonNumber();
         lessonLabel.setText("Lesson " + lessonNum + ": " + sf.getCurrentLesson().getName());
+        lessonContent.setText(sf.getCurrentLesson().getContent());
     }
 
 }
