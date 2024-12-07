@@ -3,6 +3,7 @@ package com.controllers;
 import java.io.IOException;
 
 import com.language.App;
+import com.model.SystemFACADE;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -26,6 +27,7 @@ public class SignUpController {
     private Label invalidUsernameLabel;
     @FXML
     private Label invalidPasswordLabel;
+    private SystemFACADE sf = SystemFACADE.getInstance();
 
     @FXML
     private void signUpPressed() throws IOException {
@@ -38,7 +40,7 @@ public class SignUpController {
         if (!isPasswordValid(password)) {
             invalidPasswordLabel.setVisible(true);
         } else {
-            if (App.getSystemFacade().createAccount(username, password, firstName, lastName)) {
+            if (sf.createAccount(username, password, firstName, lastName)) {
                 invalidPasswordLabel.setVisible(false); // For sanity sake
                 invalidUsernameLabel.setVisible(false); // Ditto
                 App.setRoot("login");

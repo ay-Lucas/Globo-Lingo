@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import com.language.App;
 import com.model.Question;
+import com.model.SystemFACADE;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -32,15 +33,19 @@ public class QuestionController {
         System.out.println("Check button clicked");
     }
 
-    @FXML static void handleSkipButton() {
+    @FXML
+    static void handleSkipButton() {
         // Handle the action of the "Skip" button (Placeholder for now)
         System.out.println("Skip button clicked");
     }
 
+    private SystemFACADE sf = SystemFACADE.getInstance();
+
     @FXML
     public void setAnswerButtons() {
-        Question currentQuestion = App.getSystemFacade().getCurrentQuestion();
-        if (currentQuestion == null) return;
+        Question currentQuestion = sf.getCurrentQuestion();
+        if (currentQuestion == null)
+            return;
 
         // Clear the answerBox in case it already has buttons
         answerBox.getChildren().clear();
@@ -60,8 +65,8 @@ public class QuestionController {
 
     @FXML
     public void updateScore() {
-        int scoreValue = App.getSystemFacade().getCurrentLesson().getUserScore();
-        int maxScore = App.getSystemFacade().getCurrentLesson().getMaxScore();
+        int scoreValue = sf.getCurrentLesson().getUserScore();
+        int maxScore = sf.getCurrentLesson().getMaxScore();
 
         // Clear the score Pane and add a new label with the formatted score
         score.getChildren().clear();
@@ -71,8 +76,9 @@ public class QuestionController {
 
     @FXML
     public void setPrompt() {
-        Question currentQuestion = App.getSystemFacade().getCurrentQuestion();
-        if (currentQuestion == null) return;
+        Question currentQuestion = sf.getCurrentQuestion();
+        if (currentQuestion == null)
+            return;
 
         String prompt = currentQuestion.getPrompt();
 

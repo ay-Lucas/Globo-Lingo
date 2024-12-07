@@ -5,8 +5,10 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 
 import com.language.App;
+import com.model.SystemFACADE;
 
 public class NavbarController {
+    private SystemFACADE sf = SystemFACADE.getInstance();
 
     @FXML
     private void setHomeScene() throws IOException {
@@ -30,7 +32,7 @@ public class NavbarController {
 
     @FXML
     private void logOut() throws IOException {
-        App.getSystemFacade().logout();
+        sf.logout();
         App.setRoot("login");
     }
 

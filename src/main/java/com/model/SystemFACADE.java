@@ -3,6 +3,8 @@ package com.model;
 import java.util.ArrayList;
 
 public class SystemFACADE {
+    private static SystemFACADE instance;
+
     private UserList userList;
     private User currentUser;
     private Course currentCourse;
@@ -10,9 +12,20 @@ public class SystemFACADE {
     private Question currentQuestion;
     private AvatarManager avatarManager;
 
-    public SystemFACADE() {
+    private SystemFACADE() {
         userList = UserList.getInstance();
         avatarManager = new AvatarManager();
+    }
+
+    public static SystemFACADE getInstance() {
+        if (instance == null) {
+            synchronized (SystemFACADE.class) {
+                if (instance == null) {
+                    instance = new SystemFACADE();
+                }
+            }
+        }
+        return instance;
     }
 
     public boolean createAccount(String username, String password, String firstName, String lastName) {
